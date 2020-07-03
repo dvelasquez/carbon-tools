@@ -1,0 +1,16 @@
+{
+  "name": "lighthouse-plugin-co2",
+  "private": true,
+  "main": "./plugin.js",
+  "scripts": {
+    "gather": "NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --gather-mode",
+    "run:gather": "NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --audit-mode --view",
+    "run:dev": "NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --view"
+  },
+  "peerDependencies": {
+    "lighthouse": "^6.1.0"
+  },
+  "devDependencies": {
+    "lighthouse": "^6.1.0"
+  }
+}
