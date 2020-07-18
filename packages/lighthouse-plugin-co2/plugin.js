@@ -9,7 +9,7 @@
 module.exports = {
   // Additional audit to run on information Lighthouse gathered.
   audits: [{
-    path: 'lighthouse-plugin-co2/audits/preload-as.js',
+    path: 'lighthouse-plugin-co2/audits/carbon-footprint.js',
   }],
 
   // A new category in the report for the new audit's output.
@@ -17,8 +17,7 @@ module.exports = {
     title: 'Carbon Footprint',
     description: 'Results for our new plugin category.',
     auditRefs: [
-      {id: 'preload-as', weight: 1},
-      {id: 'meta-description', weight: 1}, // Can also reference default Lighthouse audits.
+      {id: 'carbon-footprint', weight: 1},
     ],
   },
 };
