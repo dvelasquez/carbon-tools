@@ -15,7 +15,7 @@ module.exports = {
   // A new category in the report for the new audit's output.
   category: {
     title: 'Carbon Footprint',
-    description: 'Results for our new plugin category.',
+    description: 'Carbon footprint.',
     auditRefs: [
       {id: 'carbon-footprint', weight: 1},
     ],

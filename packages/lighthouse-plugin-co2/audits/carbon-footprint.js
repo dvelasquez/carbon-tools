@@ -14,35 +14,15 @@ class CarbonFootprintAudit extends Audit {
   static get meta() {
     return {
       id: 'carbon-footprint',
-      title: 'Preloaded requests have proper `as` attributes',
-      failureTitle: 'Some preloaded requests do not have proper `as` attributes',
-      description: '`<link rel=preload>` tags need an `as` attribute to specify the type of ' +
-        'content being loaded.',
+      title: 'How much CO2 is emitted transmitting the data of this page',
+      failureTitle: 'To improve your score, try to reduce the size of your assets.',
+      description: 'To transmit data over the network electricity is needed and CO2 is released to the atmosphere. ',
 
       // The name of the artifact provides input to this audit.
       requiredArtifacts: ['devtoolsLogs'],
     };
   }
 
-  /*
-    static async audit(artifacts, context) {
-      // Check that all `<link rel=preload>` elements had a defined `as` attribute.
-      const preloadLinks = artifacts.LinkElements.filter(el => el.rel === 'preload');
-      const noAsLinks = preloadLinks.filter(el => !allowedTypes.has(el.as));
-
-      // Audit passes if there are no missing attributes.
-      const passed = noAsLinks.length === 0;
-
-      const networkRequests = await this.networkRequests(artifacts, context);
-
-      console.log(networkRequests)
-
-      return {
-        score: passed ? 1 : 0,
-        displayValue: `Found ${noAsLinks.length} preload requests with missing \`as\` attributes`,
-      };
-    }
-  */
   static async audit(artifacts, context) {
     const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
     const records = await NetworkRecords.request(devtoolsLog, context)
@@ -67,7 +47,7 @@ class CarbonFootprintAudit extends Audit {
     const score = (100 - ranking.indexOf(closesRankedResult))/100;
     return {
       score,
-      displayValue: `This site emits ${footprint}g of CO2 on each visit.`,
+      displayValue: `This site emits ${footprint.toFixed(4)}g of CO2 on each visit.`,
     };
 
   }
