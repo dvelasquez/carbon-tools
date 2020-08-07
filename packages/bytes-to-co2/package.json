@@ -5,6 +5,10 @@
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
+  "repository": {
+    "url": "https://github.com/dvelasquez/bytes-to-co2",
+    "type": "git"
+  },
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "npm run build:esm && npm run build:umd",
