@@ -6,7 +6,7 @@ Transport data over the internet requires energy (datacenters, repeaters,
 switches, etc) and how this energy is different from country to country. This
 is known as the "co2 emission intensity". Each country have different ways to
 produce electricity (solar, wind, coal, diesel, nuclear, etc) and each one
-of this releases to the atmosphere a different amount of Carbon Dioxide (co2),
+of these releases to the atmosphere a different amount of Carbon Dioxide (co2),
 therefore transmit **x** amount of data will release a **y** amount of **co2**.
 
 This module has the information of the [European energy grid](https://www.eea.europa.eu/data-and-maps/daviz/co2-emission-intensity-5#tab-chart_2)
@@ -28,3 +28,9 @@ const uk = byteToCo2({ byteSize: 1000000, country: 'United Kingdom' }); // 0.472
 const sweden = byteToCo2({ byteSize: 1000000, country: 'Sweden' }); // 0.022357795387506485
 const spain = byteToCo2({ byteSize: 1000000, country: 'Spain' }); // 0.4461472854018211
 ```
+
+## Contributing
+If anything in the way I'm calculating the footprint looks odd to you, please feel free to open an issue or PR.
+Any feedback or improvements in the way the co2 is calculated is welcomed.
+
+

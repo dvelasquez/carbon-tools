@@ -1,6 +1,6 @@
 {
   "name": "bytes-to-co2",
-  "version": "0.0.0-alpha.3",
+  "version": "0.0.0-alpha.4",
   "description": "Javascript module that calculates the co2 generated in transfer x amount of bytes over the network and the country.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -20,9 +20,13 @@
   },
   "author": "Danilo Velasquez <danilo.velasquez@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "rimraf": "^3.0.2"
-  },
+  "keywords": [
+    "carbon footprint",
+    "co2",
+    "sustainability",
+    "cost of transfer data"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "@types/tap": "^14.10.0",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
@@ -33,7 +37,8 @@
     "prettier": "^2.0.5",
     "tap": "^14.10.8",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "rimraf": "^3.0.2"
   },
   "tap": {
     "nyc-arg": [
