@@ -1,5 +1,4 @@
 /**
- * @todo double check this number
  * @desc This is the average energy spent in transfer and process 1gb of data
  * based on the calculation made in "Energy Intensity of Web Data" on
  * https://www.websitecarbon.com/how-does-it-work/

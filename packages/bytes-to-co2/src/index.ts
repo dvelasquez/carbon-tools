@@ -8,7 +8,7 @@ export interface ByteToCo2Props {
   byteSize: number;
   country?: string;
   year?: number;
-  carbonFactor: number;
+  carbonFactor?: number;
   isDataAdjusted: boolean;
 }
 

@@ -2363,6 +2363,6 @@ export const getFactor = (country = 'European Union (current composition)', year
       return item.country === country && item.year === year;
     });
   } else {
-    throw new Error(`Invalid Country or Year provided. Country: '${country}, Year: '${year}'`);
+    throw new Error(`Invalid Country or Year provided. Country: {{${country}}} Year: {{${year}'}}`);
   }
 };
