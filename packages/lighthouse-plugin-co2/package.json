@@ -1,8 +1,13 @@
 {
   "name": "lighthouse-plugin-co2",
   "private": true,
-  "main": "./plugin.js",
+  "main": "./src/plugin.js",
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
   "scripts": {
+    "lint": "eslint src/**/*.js --fix",
     "gather": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --gather-mode",
     "run:gather": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --audit-mode --view",
     "run:dev": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --view"
@@ -12,6 +17,12 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "lighthouse": "^6.1.0"
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "lighthouse": "^6.2.0"
+  },
+  "dependencies": {
+    "bytes-to-co2": "0.2.6"
   }
 }
