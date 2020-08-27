@@ -20,7 +20,7 @@
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "lighthouse": "^6.2.0"
+    "lighthouse": "^6.3.0"
   },
   "dependencies": {
     "bytes-to-co2": "0.2.6"
