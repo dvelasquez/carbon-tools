@@ -1,8 +1,8 @@
-import { getFactor } from './europe-grid';
+import { getFactor } from './get-factor';
 import { calculateCo2 } from './carbon-calculator';
+import { electricityMapData } from '../source-data/electricity-map-data';
 
 export { calculateCo2 } from './carbon-calculator';
-export * from './europe-grid';
 
 export interface ByteToCo2Props {
   byteSize: number;
@@ -12,9 +12,9 @@ export interface ByteToCo2Props {
   isDataAdjusted: boolean;
 }
 
-export const byteToCo2 = ({ byteSize, country, year, isDataAdjusted }: ByteToCo2Props) => {
-  const countryFactor = getFactor(country, year);
-  return calculateCo2({ byteSize, co2Factor: countryFactor?.co2Factor, isDataAdjusted });
+export const byteToCo2 = ({ byteSize, country, isDataAdjusted }: ByteToCo2Props) => {
+  const countryFactor = getFactor(electricityMapData, country);
+  return calculateCo2({ byteSize, co2Factor: countryFactor, isDataAdjusted });
 };
 
 export default byteToCo2;
