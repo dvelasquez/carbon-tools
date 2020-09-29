@@ -23,6 +23,6 @@
     "lighthouse": "^6.3.0"
   },
   "dependencies": {
-    "bytes-to-co2": "0.2.6"
+    "bytes-to-co2": "0.3.1"
   }
 }

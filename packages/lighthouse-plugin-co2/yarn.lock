@@ -243,10 +243,10 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-bytes-to-co2@0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/bytes-to-co2/-/bytes-to-co2-0.2.6.tgz#8207bbd0ec0b047bd679e76bcba63391d1b0dc48"
-  integrity sha512-AeE7icNYorhVpYMfXl+NhSLMxzCkXQGTrYLxC84esKl+2agp1c3dQ7VD7khJjj1rE4zSnTZbMGnYWh7bQq5nNg==
+bytes-to-co2@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/bytes-to-co2/-/bytes-to-co2-0.3.1.tgz#d84dd22e81af4d6ea90251ce5c51c1b09c0106dc"
+  integrity sha512-TXkQce+1b/8plZqpQoZfOn82VuUDrUWVIn5BPzompIO9fSXWI3DZnrvxn4VZjcSgaS73f22eY3dKo5SW9uzj+A==
 
 cacheable-request@^6.0.0:
   version "6.1.0"
