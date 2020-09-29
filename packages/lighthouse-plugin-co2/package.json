@@ -19,7 +19,7 @@
     "cross-env": "^7.0.2",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "lighthouse": "^6.3.0"
   },
   "dependencies": {
