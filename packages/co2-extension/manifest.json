@@ -1,0 +1,42 @@
+{
+  "name": "Page CO2",
+  "version": "1.0",
+  "description": "build an extension",
+  "manifest_version": 2,
+  "permissions": [
+    "notifications",
+    "geolocation",
+    "tabs",
+    "storage",
+    "activeTab",
+    "http://localhost/",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "/browser-esm/bytes-to-co2.min.js",
+    "/browser-esm/bytes-to-co2.min.js.map"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/get_started16.png",
+      "32": "images/get_started32.png",
+      "48": "images/get_started48.png",
+      "128": "images/get_started128.png"
+    }
+  },
+  "icons": {
+    "16": "images/get_started16.png",
+    "32": "images/get_started32.png",
+    "48": "images/get_started48.png",
+    "128": "images/get_started128.png"
+  }
+}
