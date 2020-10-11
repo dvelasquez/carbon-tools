@@ -12,20 +12,17 @@
     "src/**/*"
   ],
   "repository": {
-    "url": "https://github.com/dvelasquez/bytes-to-co2",
+    "url": "https://github.com/dvelasquez/carbon-tools",
     "type": "git"
   },
   "scripts": {
     "process-data": "ts-node ./source-data/process-data.ts",
     "prebuild": "rimraf ./dist && npm run process-data",
     "build": "npm run build:esm && npm run build:umd && npm run build:cjs && npm run esbuild:browser:esm",
-    "build:esm": "tsc",
+    "build:esm": "tsc -d --declarationMap",
     "build:umd": "tsc --outDir ./dist/umd -m umd",
     "build:cjs": "tsc --outDir ./dist/cjs -m commonjs",
-    "esbuild:browser:esm": "esbuild --bundle --format=esm --platform=browser --target=es6 --outfile=dist/browser-esm/bytes-to-co2.min.js --sourcemap --minify src/index.ts",
-    "lint": "eslint --quiet --fix && tsc --noEmit",
-    "test": "tap --node-arg=--require=ts-node/register/transpile-only",
-    "posttest": "tap --coverage-report=html --coverage-report=cobertura"
+    "esbuild:browser:esm": "esbuild --bundle --format=esm --platform=browser --target=es6 --outfile=dist/browser-esm/bytes-to-co2.min.js --sourcemap --minify src/index.ts"
   },
   "author": "Danilo Velasquez <danilo.velasquez@gmail.com>",
   "license": "MIT",
@@ -35,23 +32,6 @@
     "sustainability",
     "cost of transfer data"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "@types/eslint": "^7.2.3",
-    "@types/prettier": "^2.1.1",
-    "@types/tap": "^14.10.1",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^3.8.0",
-    "esbuild": "^0.7.13",
-    "eslint": "^7.10.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
-    "tap": "^14.10.8",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.3"
-  },
   "tap": {
     "nyc-arg": [
       "--exclude=**/__mocks__/*.*"

@@ -1,12 +1,10 @@
-# This is a basic workflow that is manually triggered
-
 name: Lerna PR
 
 on: [push, pull_request]
 
 jobs:
   prepare_branch:
-    name: Run Puppeteer and update results
+    name: Prepare branch
     runs-on: ubuntu-latest
     env:
       CI: 'true'
@@ -22,6 +20,8 @@ jobs:
       - name: Lint
         run: yarn run lint
       - name: Run Node TAP tests
-        uses: yarn run test
-    
-    
+        run: yarn run test
+      - name: build
+        run: yarn run build
+
+
