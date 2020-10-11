@@ -4,7 +4,8 @@
   "description": "Javascript module that calculates the co2 generated in transfer x amount of bytes over the network and the country.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "browser": "dist/umd/index.js",
+  "umd": "dist/umd/index.js",
+  "browser": "dist/browser-esm/bytes-to-co2.min.js",
   "types": "dist/esm/index.d.ts",
   "files": [
     "dist/**/*",
@@ -16,11 +17,12 @@
   },
   "scripts": {
     "process-data": "ts-node ./source-data/process-data.ts",
-    "prebuild": "rimraf ./dist",
-    "build": "npm run build:esm && npm run build:umd && npm run build:cjs",
+    "prebuild": "rimraf ./dist && npm run process-data",
+    "build": "npm run build:esm && npm run build:umd && npm run build:cjs && npm run esbuild:browser:esm",
     "build:esm": "tsc",
     "build:umd": "tsc --outDir ./dist/umd -m umd",
     "build:cjs": "tsc --outDir ./dist/cjs -m commonjs",
+    "esbuild:browser:esm": "esbuild --bundle --format=esm --platform=browser --target=es6 --outfile=dist/browser-esm/bytes-to-co2.min.js --sourcemap --minify src/index.ts",
     "lint": "eslint --quiet --fix && tsc --noEmit",
     "test": "tap --node-arg=--require=ts-node/register/transpile-only",
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
@@ -40,6 +42,7 @@
     "@types/tap": "^14.10.1",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^3.8.0",
+    "esbuild": "^0.7.13",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
