@@ -1,0 +1,10 @@
+{
+  "name": "@carbon-tools/root",
+  "private": true,
+  "devDependencies": {
+    "esbuild": "^0.7.14",
+    "lerna": "^3.22.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  }
+}
