@@ -1,0 +1,27 @@
+name: Lerna Push & Pull Request
+
+on: [push, pull_request]
+
+jobs:
+  prepare_branch:
+    name: Prepare branch
+    runs-on: ubuntu-latest
+    env:
+      CI: 'true'
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Install node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
+        run: yarn
+      - name: Lint
+        run: yarn run lint
+      - name: Run Node TAP tests
+        run: yarn run test
+      - name: build
+        run: yarn run lerna:build
+
+

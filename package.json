@@ -2,7 +2,10 @@
   "name": "@carbon-tools/root",
   "private": true,
   "scripts": {
-    "build": "lerna run build",
+    "lerna:build": "lerna run build",
+    "lerna:bootstrap": "lerna bootstrap",
+    "lerna:deploy:ci": "lerna publish --yes --message 'chore: release new versions'",
+    "lerna:deploy:ci:canary": "lerna publish --yes --canary --message 'chore: release new versions'",
     "lint": "eslint --quiet --fix && tsc --noEmit",
     "test": "tap --node-arg=--require=ts-node/register/transpile-only",
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
