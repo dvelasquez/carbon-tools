@@ -1,4 +1,4 @@
-name: Release Canary Version
+name: Release New Version
 
 on:
   push:
