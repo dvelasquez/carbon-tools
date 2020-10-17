@@ -6,8 +6,8 @@ on:
       - build/ci
 
 jobs:
-  prepare_branch:
-    name: Prepare branch
+  release_canary:
+    name: Prepare branch and release Canary version
     runs-on: ubuntu-latest
     env:
       CI: 'true'
@@ -42,7 +42,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish package
-        run: npm run lerna:deploy:ci
+        run: npm run lerna:deploy:ci:canary
         env:
           GH_TOKEN: ${{ secrets.GITHUB_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}

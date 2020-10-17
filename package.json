@@ -5,7 +5,7 @@
     "lerna:build": "lerna run build",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:deploy:ci": "lerna publish --yes --message 'chore: release new versions'",
-    "lerna:deploy:ci:canary": "lerna publish --yes --canary --message 'chore: release new versions'",
+    "lerna:deploy:ci:canary": "lerna publish --yes --canary --preid beta --message 'chore: release new canary versions'",
     "lint": "eslint --quiet --fix && tsc --noEmit",
     "test": "tap --node-arg=--require=ts-node/register/transpile-only",
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
