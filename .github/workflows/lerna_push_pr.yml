@@ -1,4 +1,4 @@
-name: Lerna PR
+name: Lerna Push & Pull Request
 
 on: [push, pull_request]
 
@@ -22,6 +22,6 @@ jobs:
       - name: Run Node TAP tests
         run: yarn run test
       - name: build
-        run: yarn run build
+        run: yarn run lerna:build
 
 

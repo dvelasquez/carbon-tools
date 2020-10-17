@@ -1,0 +1,26 @@
+{
+  "name": "lighthouse-plugin-co2",
+  "version": "0.0.0",
+  "private": false,
+  "main": "lib/plugin.js",
+  "files": [
+    "lib/**/*",
+    "src/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "terminal": "$> $SHELL",
+    "gather": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --gather-mode",
+    "run:gather": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --audit-mode --view",
+    "run:dev": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --view"
+  },
+  "peerDependencies": {
+    "lighthouse": "^6.0.0"
+  },
+  "devDependencies": {
+    "lighthouse": "^6.4.1"
+  },
+  "dependencies": {
+    "bytes-to-co2": "0.3.1"
+  }
+}

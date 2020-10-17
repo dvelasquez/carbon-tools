@@ -1,0 +1,51 @@
+name: Release Canary Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release new Version
+    runs-on: ubuntu-latest
+    env:
+      CI: 'true'
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name 'Danilo Velasquez'
+          git config --global user.email 'danilo.velasquez@gmail.com'
+          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/dvelasquez/carbon-tools
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
+        run: yarn
+      - name: Lint
+        run: yarn run lint
+      - name: Run Node TAP tests
+        run: yarn run test
+      - name: build
+        run: yarn run lerna:build
+      - name: NPM Auth
+        run: |
+          yarn logout
+          echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> .npmrc 2> /dev/null
+          npm whoami
+          npm config set access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package
+        run: npm run lerna:deploy:ci
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
