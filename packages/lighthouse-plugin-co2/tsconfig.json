@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "ts-node": {
+    "compilerOptions": {
+      "module": "UMD"
+    }
+  },
+  "compilerOptions": {
+    "outDir": "./lib",
+    "allowJs": true,
+    "module": "CommonJS"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}

@@ -2,11 +2,11 @@
   "name": "bytes-to-co2",
   "version": "0.3.2",
   "description": "Javascript module that calculates the co2 generated in transfer x amount of bytes over the network and the country.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "umd": "dist/umd/index.js",
+  "main": "dist/cjs/src/index.js",
+  "module": "dist/esm/src/index.js",
+  "umd": "dist/umd/src/index.js",
   "browser": "dist/browser-esm/bytes-to-co2.min.js",
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/esm/src/index.d.ts",
   "files": [
     "dist/**/*",
     "src/**/*"

@@ -9,52 +9,67 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
-const { Audit } = require('lighthouse');
-const NetworkRecords = require('lighthouse/lighthouse-core/computed/network-records.js');
-const { byteToCo2 } = require('bytes-to-co2');
-const { countries } = require('bytes-to-co2');
-const ranking = require('../helpers/ranking');
+import { ranking } from '../helpers/ranking';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { byteToCo2, countries } from 'bytes-to-co2';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import NetworkRecords from 'lighthouse/lighthouse-core/computed/network-records';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { Audit } from 'lighthouse';
 
 class CarbonFootprintAudit extends Audit {
   static get meta() {
     return {
       id: 'carbon-footprint',
       title: 'Estimated co2 emissions downloading the assets of the page',
-      failureTitle: 'Reducing the size of your site will improve '
-        + 'the performance and will reduce the co2 released to the atmosphere',
-      description: 'Every byte transmited over the network requires certain '
-        + 'amount of electricity, which is produced '
-        + 'using a mix of fossil fuel, solar, wind, etc., which releas co2'
-        + ' to the atmosphere.',
+      failureTitle:
+        'Reducing the size of your site will improve ' +
+        'the performance and will reduce the co2 released to the atmosphere',
+      description:
+        'Every byte transmitted over the network requires certain ' +
+        'amount of electricity, which is produced ' +
+        'using a mix of fossil fuel, solar, wind, etc., which releas co2' +
+        ' to the atmosphere.',
 
       // The name of the artifact provides input to this audit.
       requiredArtifacts: ['devtoolsLogs'],
     };
   }
 
-  static round(value, decimals) {
-    return Number(`${Math.round(`${value}e${decimals}`)}e-${decimals}`);
+  static round(value: number, decimals: number) {
+    return Number(`${Math.round(Number(`${value}e${decimals}`))}e-${decimals}`);
   }
 
-  static audit(artifacts, context) {
+  static audit(artifacts: LH.Artifacts, context: LH.Audit.Context) {
     try {
       const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
-      return NetworkRecords.request(devtoolsLog, context).then((records) => {
-        const agregatedResult = records.reduce((accumulator, current) => ({
-          transferSize: accumulator.transferSize + current.transferSize,
-          resourceSize: accumulator.resourceSize + current.resourceSize,
-        }));
+      return NetworkRecords.request(devtoolsLog, context).then((records: NetworkRecords) => {
+        const agregatedResult = records.reduce(
+          (accumulator: LH.Artifacts.NetworkRequest, current: LH.Artifacts.NetworkRequest) => ({
+            transferSize: accumulator.transferSize + current.transferSize,
+            resourceSize: accumulator.resourceSize + current.resourceSize,
+          }),
+        );
 
-        const resultByCountry = countries.map((country) => {
-          const co2 = byteToCo2({ byteSize: agregatedResult.transferSize, country });
+        const resultByCountry = countries.map((country: { code: string; name: string }) => {
+          const co2 = byteToCo2({
+            byteSize: agregatedResult.transferSize,
+            country: country.code,
+            isDataAdjusted: false,
+          });
           const closest = [...ranking].sort((a, b) => Math.abs(co2 - a) - Math.abs(co2 - b))[0];
-          const score = this.round(1 - (ranking.findIndex((value) => value === closest) / 100), 2);
+          const score = this.round(1 - ranking.findIndex((value) => value === closest) / 100, 2);
           return {
             country,
             transferSize: agregatedResult.transferSize,
             resourceSize: agregatedResult.resourceSize,
-            co2Grams: `${this.round(byteToCo2({ byteSize: agregatedResult.transferSize, country }), 4)}`,
+            co2Grams: `${this.round(
+              byteToCo2({ byteSize: agregatedResult.transferSize, country: country.code, isDataAdjusted: false }),
+              4,
+            )}`,
             score,
           };
         });
@@ -79,7 +94,8 @@ class CarbonFootprintAudit extends Audit {
             key: 'co2Grams',
             itemType: 'text',
             text: 'Grams of CO2',
-          }, {
+          },
+          {
             key: 'score',
             itemType: 'text',
             text: 'Score',
@@ -89,7 +105,10 @@ class CarbonFootprintAudit extends Audit {
         const tableDetails = Audit.makeTableDetails(headings, resultByCountry);
 
         return {
-          score: resultByCountry.find(({ country }) => country === 'European Union (current composition)').score,
+          // score: resultByCountry.find(({ country }) => {
+          //   return country.code === 'AU';
+          // }).score,
+          score: 0,
           details: tableDetails,
         };
       });

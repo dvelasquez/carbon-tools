@@ -1,9 +1,9 @@
 # Lighthouse plugin recipe
 
 ## Contents
-- `package.json` - declares the plugin's entry point (`plugin.js`)
-- `plugin.js` - instructs Lighthouse to run the plugin's own `carbon-footprint.js` audit; describes the new category and its details for the report
-- `audits/carbon-footprint.js` - the new audit to run in addition to Lighthouse's default audits
+- `package.json` - declares the plugin's entry point (`plugin.ts`)
+- `plugin.ts` - instructs Lighthouse to run the plugin's own `carbon-footprint.ts` audit; describes the new category and its details for the report
+- `audits/carbon-footprint.ts` - the new audit to run in addition to Lighthouse's default audits
 
 ## To develop as a plugin developer
 

@@ -7,18 +7,19 @@
  */
 
 /** @type {LH.Config.Plugin} */
-module.exports = {
+const plugin: LH.Config.Plugin = {
   // Additional audit to run on information Lighthouse gathered.
-  audits: [{
-    path: 'lighthouse-plugin-co2/src/audits/carbon-footprint.js',
-  }],
+  audits: [
+    {
+      path: 'lighthouse-plugin-co2/lib/audits/carbon-footprint.js',
+    },
+  ],
 
   // A new category in the report for the new audit's output.
   category: {
     title: 'Carbon Footprint',
     description: 'Results for our new plugin category.',
-    auditRefs: [
-      { id: 'carbon-footprint', weight: 1 },
-    ],
+    auditRefs: [{ id: 'carbon-footprint', weight: 1 }],
   },
 };
+module.exports = plugin;

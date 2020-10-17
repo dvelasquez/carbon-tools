@@ -2,8 +2,9 @@
   "name": "@carbon-tools/root",
   "private": true,
   "scripts": {
+    "lerna:run:gather": "lerna run gather",
     "lerna:build": "lerna run build",
-    "lerna:bootstrap": "lerna bootstrap",
+    "lerna:bootstrap": "lerna bootstrap && lerna link --force-local",
     "lerna:deploy:ci": "lerna publish --yes --message 'chore: release new versions'",
     "lerna:deploy:ci:canary": "lerna publish --yes --canary --preid beta --message 'chore: release new canary versions'",
     "lint": "eslint --quiet --fix && tsc --noEmit",
@@ -11,6 +12,7 @@
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "esbuild": "^0.7.14",
     "lerna": "^3.22.1",
     "ts-node": "^9.0.0",
