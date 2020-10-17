@@ -53,6 +53,7 @@ class CarbonFootprintAudit extends Audit {
             resourceSize: accumulator.resourceSize + current.resourceSize,
           }),
         );
+        countries.push({ code: 'ZZ', name: 'World' });
 
         const resultByCountry = countries.map((country: { code: string; name: string }) => {
           const co2 = byteToCo2({
@@ -63,7 +64,7 @@ class CarbonFootprintAudit extends Audit {
           const closest = [...ranking].sort((a, b) => Math.abs(co2 - a) - Math.abs(co2 - b))[0];
           const score = this.round(1 - ranking.findIndex((value) => value === closest) / 100, 2);
           return {
-            country,
+            country: country.name,
             transferSize: agregatedResult.transferSize,
             resourceSize: agregatedResult.resourceSize,
             co2Grams: `${this.round(
@@ -105,10 +106,9 @@ class CarbonFootprintAudit extends Audit {
         const tableDetails = Audit.makeTableDetails(headings, resultByCountry);
 
         return {
-          // score: resultByCountry.find(({ country }) => {
-          //   return country.code === 'AU';
-          // }).score,
-          score: 0,
+          score: resultByCountry.find(({ country }: { country: string }) => {
+            return country === 'World'; // World average
+          })?.score,
           details: tableDetails,
         };
       });

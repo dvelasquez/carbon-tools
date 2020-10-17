@@ -18,7 +18,7 @@ const plugin: LH.Config.Plugin = {
   // A new category in the report for the new audit's output.
   category: {
     title: 'Carbon Footprint',
-    description: 'Results for our new plugin category.',
+    description: 'Score represent how better this page performs compared to others.',
     auditRefs: [{ id: 'carbon-footprint', weight: 1 }],
   },
 };
