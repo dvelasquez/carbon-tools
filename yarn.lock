@@ -1819,11 +1819,6 @@ byte-size@^5.0.1:
   resolved "https://registry.yarnpkg.com/byte-size/-/byte-size-5.0.1.tgz#4b651039a5ecd96767e71a3d7ed380e48bed4191"
   integrity sha512-/XuKeqWocKsYa/cBY1YbSJSWWqTi4cFgr9S6OyM7PBaPbr9zvNGwWP33vt0uqGhwDdN+y3yhbXVILEUpnwEWGw==
 
-bytes-to-co2@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/bytes-to-co2/-/bytes-to-co2-0.3.1.tgz#d84dd22e81af4d6ea90251ce5c51c1b09c0106dc"
-  integrity sha512-TXkQce+1b/8plZqpQoZfOn82VuUDrUWVIn5BPzompIO9fSXWI3DZnrvxn4VZjcSgaS73f22eY3dKo5SW9uzj+A==
-
 cacache@^12.0.0, cacache@^12.0.3:
   version "12.0.4"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-12.0.4.tgz#668bcbd105aeb5f1d92fe25570ec9525c8faa40c"

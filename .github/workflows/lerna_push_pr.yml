@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Install Dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn run lint
       - name: Run Node TAP tests
