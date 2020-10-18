@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - build/ci
+      - ci/*
 
 jobs:
   release_canary:
@@ -18,7 +19,7 @@ jobs:
         run: |
           git config --global user.name 'Danilo Velasquez'
           git config --global user.email 'danilo.velasquez@gmail.com'
-          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/dvelasquez/carbon-tools
+          git remote set-url origin https://$GITHUB_TOKEN@github.com/dvelasquez/carbon-tools
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install node
@@ -44,8 +45,8 @@ jobs:
       - name: Publish package
         run: npm run lerna:deploy:ci:canary
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 
