@@ -1,7 +1,6 @@
 import { getFactor } from './get-factor';
 import { calculateCo2 } from './carbon-calculator';
-import { electricityMapData } from '../source-data/electricity-map-data';
-import { getCountries } from '../source-data/country-names';
+import { electricityMapData, getCountries } from 'co2-data';
 
 export { calculateCo2 } from './carbon-calculator';
 

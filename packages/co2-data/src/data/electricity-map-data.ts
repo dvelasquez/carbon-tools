@@ -1,4 +1,4 @@
-import { ElectricityMapResult } from './index';
+import { ElectricityMapResult } from '../types';
 
 export interface ElectricityMapDataComputed extends ElectricityMapResult {
   co2List: number[];

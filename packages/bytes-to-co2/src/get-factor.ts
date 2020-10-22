@@ -1,8 +1,8 @@
-import { ElectricityMapDataComputed } from '../source-data/electricity-map-data';
+import { ElectricityMapDataComputed } from 'co2-data';
 
-export const getFactor = (data: ElectricityMapDataComputed[], code?: string): number => {
+export const getFactor = (electricityMapData: ElectricityMapDataComputed[], code?: string): number => {
   if (!code) code = 'ZZ';
-  const result = data.find((countryData) => {
+  const result = electricityMapData.find((countryData) => {
     if (countryData.code === code) return countryData;
   });
   return result?.dailyAverage || 0;
