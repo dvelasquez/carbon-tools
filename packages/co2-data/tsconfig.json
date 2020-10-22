@@ -2,12 +2,14 @@
   "extends": "../../tsconfig.json",
   "ts-node": {
     "compilerOptions": {
-      "module": "UMD"
+      "module": "UMD",
+      "resolveJsonModule": true // Only to load the json file in the test
     }
   },
   "compilerOptions": {
     "outDir": "./dist/esm",
-    "resolveJsonModule": true
+    "declaration": true,
+    "declarationMap": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]

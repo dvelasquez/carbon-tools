@@ -18,7 +18,7 @@
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "yarn run build:esm && yarn run build:umd && yarn run build:cjs && npm run esbuild:browser:esm",
-    "build:esm": "tsc -d --declarationMap",
+    "build:esm": "tsc",
     "build:umd": "tsc --outDir ./dist/umd -m umd",
     "build:cjs": "tsc --outDir ./dist/cjs -m commonjs",
     "esbuild:browser:esm": "esbuild --bundle --format=esm --platform=browser --target=es6 --outfile=dist/browser-esm/bytes-to-co2.min.js --sourcemap --minify src/index.ts"

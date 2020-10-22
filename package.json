@@ -9,7 +9,7 @@
     "lerna:deploy:ci:canary": "lerna publish --yes --canary --preid beta --message 'chore: release new canary versions'",
     "lerna:run:gather": "lerna run run:gather",
     "lerna:run:dev": "lerna run run:dev",
-    "lint": "eslint --quiet --fix && tsc --noEmit",
+    "lint": "eslint --quiet --fix",
     "test": "tap --node-arg=--require=ts-node/register/transpile-only",
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
   },
