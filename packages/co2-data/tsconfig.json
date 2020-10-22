@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "ts-node": {
+    "compilerOptions": {
+      "module": "UMD"
+    }
+  },
+  "compilerOptions": {
+    "outDir": "./dist/esm",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{Node.js Core, carbon-tools/node_modules}" />
-    <file url="file://$PROJECT_DIR$/packages/bytes-to-co2" libraries="{Node.js Core, carbon-tools/node_modules}" />
-    <file url="PROJECT" libraries="{ts-external-references}" />
+    <file url="file://$PROJECT_DIR$/packages/bytes-to-co2" libraries="{carbon-tools/node_modules}" />
   </component>
 </project>
