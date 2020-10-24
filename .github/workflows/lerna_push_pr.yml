@@ -1,6 +1,10 @@
 name: Lerna Push & Pull Request
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
 
 jobs:
   prepare_branch:
