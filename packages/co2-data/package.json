@@ -1,0 +1,21 @@
+{
+  "name": "co2-data",
+  "version": "0.0.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "license": "MIT",
+  "scripts": {
+    "prepare-data": "ts-node ./src/data/process-data.ts",
+    "prebuild": "rimraf dist",
+    "build": "yarn run build:cjs && yarn run build:esm && yarn run build:umd",
+    "build:esm": "tsc && cpy src/types/* dist/esm/types",
+    "build:umd": "tsc --outDir ./dist/umd -m umd && cpy src/types/* dist/umd/types",
+    "build:cjs": "tsc --outDir ./dist/cjs -m commonjs && cpy src/types/* dist/cjs/types"
+  },
+  "keywords": [
+    "carbon footprint",
+    "co2",
+    "sustainability",
+    "cost of transfer data"
+  ]
+}

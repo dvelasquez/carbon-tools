@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "main": "lib/plugin.js",
   "files": [
-    "lib/**/*",
-    "src/**/*"
+    "lib/**/*"
   ],
   "scripts": {
     "build": "tsc",

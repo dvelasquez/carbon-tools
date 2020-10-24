@@ -16,10 +16,9 @@
     "type": "git"
   },
   "scripts": {
-    "process-data": "ts-node ./source-data/process-data.ts",
-    "prebuild": "rimraf ./dist && npm run process-data",
-    "build": "npm run build:esm && npm run build:umd && npm run build:cjs && npm run esbuild:browser:esm",
-    "build:esm": "tsc -d --declarationMap",
+    "prebuild": "rimraf ./dist",
+    "build": "yarn run build:esm && yarn run build:umd && yarn run build:cjs && npm run esbuild:browser:esm",
+    "build:esm": "tsc",
     "build:umd": "tsc --outDir ./dist/umd -m umd",
     "build:cjs": "tsc --outDir ./dist/cjs -m commonjs",
     "esbuild:browser:esm": "esbuild --bundle --format=esm --platform=browser --target=es6 --outfile=dist/browser-esm/bytes-to-co2.min.js --sourcemap --minify src/index.ts"
@@ -42,5 +41,8 @@
       "TS_NODE_PROJECT=tsconfig.json",
       "TS_NODE_FILES=true"
     ]
+  },
+  "dependencies": {
+    "co2-data": "*"
   }
 }

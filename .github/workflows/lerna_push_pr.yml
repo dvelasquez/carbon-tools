@@ -19,9 +19,9 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn run lint
-      - name: Run Node TAP tests
-        run: yarn run test
+      - name: Bootstrap dependencies
+        run: yarn run lerna:bootstrap
       - name: build
         run: yarn run lerna:build
-
-
+      - name: Run Node TAP tests
+        run: yarn run test

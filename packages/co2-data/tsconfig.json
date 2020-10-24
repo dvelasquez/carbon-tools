@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "ts-node": {
     "compilerOptions": {
-      "module": "UMD"
+      "module": "UMD",
+      "resolveJsonModule": true // Only to load the json file in the test
     }
   },
   "compilerOptions": {

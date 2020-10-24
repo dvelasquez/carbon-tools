@@ -6,7 +6,6 @@
  * specific language governing permissions and limitations under the License.
  */
 
-/** @type {LH.Config.Plugin} */
 const plugin: LH.Config.Plugin = {
   // Additional audit to run on information Lighthouse gathered.
   audits: [

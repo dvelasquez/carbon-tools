@@ -9,29 +9,32 @@
     "lerna:deploy:ci:canary": "lerna publish --yes --canary --preid beta --message 'chore: release new canary versions'",
     "lerna:run:gather": "lerna run run:gather",
     "lerna:run:dev": "lerna run run:dev",
-    "lint": "eslint --quiet --fix && tsc --noEmit",
+    "lint": "eslint --quiet --fix",
     "test": "tap --node-arg=--require=ts-node/register/transpile-only",
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "esbuild": "^0.7.14",
-    "lerna": "^3.22.1",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.3",
     "@types/eslint": "^7.2.3",
     "@types/prettier": "^2.1.1",
     "@types/tap": "^14.10.1",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^3.8.0",
-    "eslint": "^7.10.0",
-    "eslint-config-prettier": "^6.12.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "cpy-cli": "^3.1.1",
+    "cross-env": "^7.0.2",
+    "esbuild": "^0.7.19",
+    "eslint": "^7.12.0",
+    "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "lerna": "^3.22.1",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
-    "tap": "^14.10.8"
+    "tap": "^14.10.8",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "tap": {
     "nyc-arg": [
       "--exclude=**/__mocks__/*.*"

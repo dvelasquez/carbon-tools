@@ -1,6 +1,4 @@
-export interface CountryNames {
-  [key: string]: { zoneName: string; countryName?: string };
-}
+import { CountryNames } from './types';
 
 export const countryNames: CountryNames = {
   AD: { zoneName: 'Andorra' },

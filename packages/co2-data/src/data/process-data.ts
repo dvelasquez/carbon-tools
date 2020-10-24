@@ -1,19 +1,36 @@
 import fs from 'fs';
 import path from 'path';
 import { ESLint } from 'eslint';
-import { ElectricityMapDataResponse } from './electricity-map';
-import { getCountries } from './country-names';
-import { ElectricityMapResult, getDataByCode } from './index';
+import { findKeysByCode, getCountries } from '../country-names';
+import { Co2Data, ElectricityMapDataResponse, ElectricityMapResult, ElectricityMapResultAveraged } from '../types';
 
-interface ElectricityMapResultAveraged extends ElectricityMapResult {
-  co2List: number[];
-  dailyAverage: number | null;
-}
+export const getDataByCode = (dataResponse: ElectricityMapDataResponse, code?: string): ElectricityMapResult => {
+  const codesFound: string[] = findKeysByCode(code);
+  const result: ElectricityMapResult = {
+    code: code || 'ZZ',
+    codeList: [],
+    co2Intensities: [],
+    averageCo2Intensity: 0,
+  };
+  codesFound.forEach((code) => {
+    const countryData = dataResponse.data.countries[code];
+    if (countryData?.co2intensity) {
+      result.codeList.push(countryData.countryCode);
+      result.co2Intensities.push(countryData.co2intensity);
+    }
+  });
+  // Only reduce data from CountryCodes with data
+  if (result.co2Intensities.length > 0) {
+    result.averageCo2Intensity =
+      result.co2Intensities.reduce((a: number, b: number) => a + b) / result.co2Intensities.length;
+  }
+  return result;
+};
 
 (async () => {
   const fsPromise = fs.promises;
-  const PAYLOAD_FOLDER = './source-data/json';
-  const OUTPUT_FILE = './source-data/electricity-map-data.ts';
+  const PAYLOAD_FOLDER = './src/data/json';
+  const OUTPUT_FILE = './src/data/co2-data.ts';
   const filesInDirectory = await fsPromise.readdir(path.resolve(PAYLOAD_FOLDER));
 
   const files = filesInDirectory.filter((file) => {
@@ -75,14 +92,16 @@ interface ElectricityMapResultAveraged extends ElectricityMapResult {
     codeList: [],
     dailyAverage: worldSum / countriesWithValues,
   });
-  const typescriptFile = `
-  import { ElectricityMapResult } from './index';
-  
-  export interface ElectricityMapDataComputed extends ElectricityMapResult {
-    co2List: number[];
-    dailyAverage: number | null;
+  const co2Data: Co2Data[] = averagedResult.map((resultAveraged) => ({
+    code: resultAveraged.code,
+    co2Intensity: resultAveraged.dailyAverage,
+  }));
+  const typescriptFile = `  
+  export interface Co2Data {
+    code: string;
+    co2Intensity: number | null;
   }
-  export const electricityMapData: ElectricityMapDataComputed[] = ${JSON.stringify(averagedResult)}
+  export const co2Data: Co2Data[] = ${JSON.stringify(co2Data)}
   `;
   await fsPromise.writeFile(OUTPUT_FILE, typescriptFile, { encoding: 'utf-8' });
   const eslint = new ESLint({ fix: true });

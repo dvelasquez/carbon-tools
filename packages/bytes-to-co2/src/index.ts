@@ -1,7 +1,6 @@
 import { getFactor } from './get-factor';
 import { calculateCo2 } from './carbon-calculator';
-import { electricityMapData } from '../source-data/electricity-map-data';
-import { getCountries } from '../source-data/country-names';
+import { co2Data, getCountries } from 'co2-data';
 
 export { calculateCo2 } from './carbon-calculator';
 
@@ -16,7 +15,7 @@ export interface ByteToCo2Props {
 export const countries = getCountries();
 
 export const byteToCo2 = ({ byteSize, country, isDataAdjusted }: ByteToCo2Props) => {
-  const countryFactor = getFactor(electricityMapData, country);
+  const countryFactor = getFactor(co2Data, country);
   return calculateCo2({ byteSize, co2Factor: countryFactor, isDataAdjusted });
 };
 
