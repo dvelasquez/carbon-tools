@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "description": "Carbon intensity of 66 countries and a world average update to 2020",
   "license": "MIT",
   "scripts": {
     "prepare-data": "ts-node ./src/data/process-data.ts",
