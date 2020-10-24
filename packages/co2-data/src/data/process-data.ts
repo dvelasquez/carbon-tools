@@ -2,12 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { ESLint } from 'eslint';
 import { findKeysByCode, getCountries } from '../country-names';
-import { ElectricityMapDataResponse, ElectricityMapResult } from '../types';
-
-interface ElectricityMapResultAveraged extends ElectricityMapResult {
-  co2List: number[];
-  dailyAverage: number | null;
-}
+import { Co2Data, ElectricityMapDataResponse, ElectricityMapResult, ElectricityMapResultAveraged } from '../types';
 
 export const getDataByCode = (dataResponse: ElectricityMapDataResponse, code?: string): ElectricityMapResult => {
   const codesFound: string[] = findKeysByCode(code);
@@ -35,7 +30,7 @@ export const getDataByCode = (dataResponse: ElectricityMapDataResponse, code?: s
 (async () => {
   const fsPromise = fs.promises;
   const PAYLOAD_FOLDER = './src/data/json';
-  const OUTPUT_FILE = './src/data/electricity-map-data.ts';
+  const OUTPUT_FILE = './src/data/co2-data.ts';
   const filesInDirectory = await fsPromise.readdir(path.resolve(PAYLOAD_FOLDER));
 
   const files = filesInDirectory.filter((file) => {
@@ -97,14 +92,16 @@ export const getDataByCode = (dataResponse: ElectricityMapDataResponse, code?: s
     codeList: [],
     dailyAverage: worldSum / countriesWithValues,
   });
-  const typescriptFile = `
-  import { ElectricityMapResult } from '../types';
-  
-  export interface ElectricityMapDataComputed extends ElectricityMapResult {
-    co2List: number[];
-    dailyAverage: number | null;
+  const co2Data: Co2Data[] = averagedResult.map((resultAveraged) => ({
+    code: resultAveraged.code,
+    co2Intensity: resultAveraged.dailyAverage,
+  }));
+  const typescriptFile = `  
+  export interface Co2Data {
+    code: string;
+    co2Intensity: number | null;
   }
-  export const electricityMapData: ElectricityMapDataComputed[] = ${JSON.stringify(averagedResult)}
+  export const co2Data: Co2Data[] = ${JSON.stringify(co2Data)}
   `;
   await fsPromise.writeFile(OUTPUT_FILE, typescriptFile, { encoding: 'utf-8' });
   const eslint = new ESLint({ fix: true });

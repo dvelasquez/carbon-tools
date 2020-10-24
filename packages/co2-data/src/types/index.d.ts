@@ -121,3 +121,13 @@ export interface ElectricityMapDataComputed extends ElectricityMapResult {
   co2List: number[];
   dailyAverage: number | null;
 }
+
+export interface ElectricityMapResultAveraged extends ElectricityMapResult {
+  co2List: number[];
+  dailyAverage: number | null;
+}
+
+export interface Co2Data {
+  code: string;
+  co2Intensity: number | null;
+}
