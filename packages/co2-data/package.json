@@ -1,16 +1,14 @@
 {
   "name": "co2-data",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "description": "Carbon intensity of 66 countries and a world average update to 2020",
   "license": "MIT",
   "scripts": {
     "prepare-data": "ts-node ./src/data/process-data.ts",
     "prebuild": "rimraf dist",
-    "build": "yarn run build:cjs && yarn run build:esm && yarn run build:umd",
-    "build:esm": "tsc && cpy src/types/* dist/esm/types",
-    "build:umd": "tsc --outDir ./dist/umd -m umd && cpy src/types/* dist/umd/types",
-    "build:cjs": "tsc --outDir ./dist/cjs -m commonjs && cpy src/types/* dist/cjs/types"
+    "build": "rollup -c"
   },
   "keywords": [
     "carbon footprint",
