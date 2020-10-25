@@ -9,7 +9,8 @@ produce electricity (solar, wind, coal, diesel, nuclear, etc) and each one
 of these releases to the atmosphere a different amount of Carbon Dioxide (co2),
 therefore transmit **x** amount of data will release a **y** amount of **co2**.
 
-This module gets the information from [Electricity Maps](https://www.electricitymap.org/).
+This module gets the information from [Electricity Maps](https://www.electricitymap.org/) through the 
+[co2-data library](../co2-data).
 I downloaded the results every hour for 1 day and averaged them by country.
 
 ## Usage
