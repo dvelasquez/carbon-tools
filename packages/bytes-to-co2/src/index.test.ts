@@ -1,32 +1,32 @@
 import Tap from 'tap';
-import { byteToCo2 } from './index';
+import { bytesToCo2 } from './index';
 
 Tap.test('Integration test', (t) => {
-  const defaultWorld = byteToCo2({
+  const defaultWorld = bytesToCo2({
     byteSize: 1e6,
     isDataAdjusted: false,
   });
-  const austria = byteToCo2({
+  const austria = bytesToCo2({
     country: 'AT',
     byteSize: 1e6,
     isDataAdjusted: false,
   });
-  const sweden = byteToCo2({
+  const sweden = bytesToCo2({
     country: 'SE',
     byteSize: 1e6,
     isDataAdjusted: false,
   });
-  const chile = byteToCo2({
+  const chile = bytesToCo2({
     country: 'CL',
     byteSize: 1e6,
     isDataAdjusted: false,
   });
-  const greatBritain = byteToCo2({
+  const greatBritain = bytesToCo2({
     country: 'GB',
     byteSize: 1e6,
     isDataAdjusted: false,
   });
-  const spain = byteToCo2({
+  const spain = bytesToCo2({
     country: 'ES',
     byteSize: 1e6,
     isDataAdjusted: false,
