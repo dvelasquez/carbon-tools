@@ -1,4 +1,9 @@
 # bytes-to-co2
+[![npm](https://badgen.net/npm/v/bytes-to-co2)](https://www.npmjs.com/package/bytes-to-co2)
+[![bundlephobia-min](https://badgen.net/bundlephobia/min/bytes-to-co2)](https://bundlephobia.com/result?p=bytes-to-co2)
+[![bundlephobia-min-gzip](https://badgen.net/bundlephobia/minzip/bytes-to-co2)](https://bundlephobia.com/result?p=bytes-to-co2)
+[![bundlephobia-tree-shaking](https://badgen.net/bundlephobia/tree-shaking/bytes-to-co2)](https://bundlephobia.com/result?p=bytes-to-co2)
+
 Calculate the **co2 footprint** (carbon dioxide released to the atmosphere) 
 of transmitting an `x` amount of bytes over the internet.
 
@@ -21,12 +26,12 @@ or
 
 Import the library and call the function as shown:
 ```javascript
-import { byteToCo2 } from "bytes-to-co2";
+import { bytesToCo2 } from "bytes-to-co2";
 
-const uk = byteToCo2({ byteSize: 1000000, country: 'GB' }); // 0.35021555843286817
-const sweden = byteToCo2({ byteSize: 1000000, country: 'SE' }); // 0.06411629304105701
-const spain = byteToCo2({ byteSize: 1000000, country: 'ES' }); // 0.4461472854018211
-const world = byteToCo2({ byteSize: 1000000, country: 'ZZ' }); // 0.539680558728753
+const uk = bytesToCo2({ byteSize: 1000000, country: 'GB' }); // 0.35021555843286817
+const sweden = bytesToCo2({ byteSize: 1000000, country: 'SE' }); // 0.06411629304105701
+const spain = bytesToCo2({ byteSize: 1000000, country: 'ES' }); // 0.4461472854018211
+const world = bytesToCo2({ byteSize: 1000000, country: 'ZZ' }); // 0.539680558728753
 ```
 
 ## Contributing
