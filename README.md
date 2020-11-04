@@ -21,6 +21,8 @@ For now, we are only exposing as libraries [co2-data](https://www.npmjs.com/pack
 
 ## Development - Getting started
 
+Project supports NodeJS v12.x. Support for v14 and above are on the way
+
 1. Clone the project `git clone https://github.com/dvelasquez/carbon-tools.git`
 2. Run `yarn` to install the dev dependencies
 3. Use `yarn lerna:build` to build all the libraries
