@@ -1,7 +1,7 @@
 import Tap from 'tap';
 // @ts-ignore
 import electricityMapData from './data/json/13-9-2020--12.json';
-import { getDataByCode } from './data/process-data';
+import { getDataByCode } from './data/data-helpers';
 
 Tap.test('should get the data based in an ISO code', (t) => {
   const clResult = getDataByCode(electricityMapData, 'CL');

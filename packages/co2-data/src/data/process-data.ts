@@ -1,31 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { ESLint } from 'eslint';
-import { findKeysByCode, getCountries } from '../country-names';
+import { getCountries } from '../country-names';
 import { Co2Data, ElectricityMapDataResponse, ElectricityMapResult, ElectricityMapResultAveraged } from '../types';
-
-export const getDataByCode = (dataResponse: ElectricityMapDataResponse, code?: string): ElectricityMapResult => {
-  const codesFound: string[] = findKeysByCode(code);
-  const result: ElectricityMapResult = {
-    code: code || 'ZZ',
-    codeList: [],
-    co2Intensities: [],
-    averageCo2Intensity: 0,
-  };
-  codesFound.forEach((code) => {
-    const countryData = dataResponse.data.countries[code];
-    if (countryData?.co2intensity) {
-      result.codeList.push(countryData.countryCode);
-      result.co2Intensities.push(countryData.co2intensity);
-    }
-  });
-  // Only reduce data from CountryCodes with data
-  if (result.co2Intensities.length > 0) {
-    result.averageCo2Intensity =
-      result.co2Intensities.reduce((a: number, b: number) => a + b) / result.co2Intensities.length;
-  }
-  return result;
-};
+import { getDataByCode } from './data-helpers';
 
 (async () => {
   const fsPromise = fs.promises;
