@@ -41,6 +41,7 @@
     "packages/*"
   ],
   "tap": {
+    "check-coverage": false,
     "nyc-arg": [
       "--exclude=**/__mocks__/*.*"
     ],
