@@ -1498,9 +1498,9 @@
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
 
 "@types/tap@^15.0.1":
-  version "15.0.2"
-  resolved "https://registry.yarnpkg.com/@types/tap/-/tap-15.0.2.tgz#92dfeac11b8e8c752f6ad4f7dfa5a0055eab79de"
-  integrity sha512-dF4ITq+B0vY26iSW27ga0xbuzqPRdKd1rJZD9zFKJSHam74CgyEStkVKeHHQThBC0SsmrXQnOvElH3xKKYu33g==
+  version "15.0.3"
+  resolved "https://registry.yarnpkg.com/@types/tap/-/tap-15.0.3.tgz#932b08fc6014ae6391bdc4c80415bb77f5172504"
+  integrity sha512-usOLtmMm1jfjPdkt9R9HMTU/J6m9QNYjgFs5U2tFiOzQSd7lDd/aAMprExYLnJnZb6tM4ujmGv7ITe+1smIRgg==
   dependencies:
     "@types/node" "*"
 
