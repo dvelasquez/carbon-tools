@@ -12,7 +12,7 @@
 import { ranking } from '../helpers/ranking';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { byteToCo2, countries } from 'bytes-to-co2';
+import { bytesToCo2, countries } from 'bytes-to-co2';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import NetworkRecords from 'lighthouse/lighthouse-core/computed/network-records';
@@ -56,7 +56,7 @@ class CarbonFootprintAudit extends Audit {
         countries.push({ code: 'ZZ', name: 'World' });
 
         const resultByCountry = countries.map((country: { code: string; name: string }) => {
-          const co2 = byteToCo2({
+          const co2 = bytesToCo2({
             byteSize: agregatedResult.transferSize,
             country: country.code,
             isDataAdjusted: false,
@@ -68,7 +68,7 @@ class CarbonFootprintAudit extends Audit {
             transferSize: agregatedResult.transferSize,
             resourceSize: agregatedResult.resourceSize,
             co2Grams: `${this.round(
-              byteToCo2({ byteSize: agregatedResult.transferSize, country: country.code, isDataAdjusted: false }),
+              bytesToCo2({ byteSize: agregatedResult.transferSize, country: country.code, isDataAdjusted: false }),
               4,
             )}`,
             score,
