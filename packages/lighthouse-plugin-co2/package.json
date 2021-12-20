@@ -16,7 +16,7 @@
     "lighthouse": "^6.0.0"
   },
   "devDependencies": {
-    "lighthouse": "^8.0.0"
+    "lighthouse": "^9.2.0"
   },
   "dependencies": {
     "bytes-to-co2": "^0.3.20"
