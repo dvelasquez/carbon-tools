@@ -18,7 +18,7 @@ import { byteToCo2, countries } from 'bytes-to-co2';
 import NetworkRecords from 'lighthouse/lighthouse-core/computed/network-records';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Audit } from 'lighthouse';
+import { Audit, Artifacts } from 'lighthouse';
 
 class CarbonFootprintAudit extends Audit {
   static get meta() {
@@ -43,12 +43,12 @@ class CarbonFootprintAudit extends Audit {
     return Number(`${Math.round(Number(`${value}e${decimals}`))}e-${decimals}`);
   }
 
-  static audit(artifacts: LH.Artifacts, context: LH.Audit.Context) {
+  static audit(artifacts: Artifacts, context: Audit.Context) {
     try {
       const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
       return NetworkRecords.request(devtoolsLog, context).then((records: NetworkRecords) => {
         const agregatedResult = records.reduce(
-          (accumulator: LH.Artifacts.NetworkRequest, current: LH.Artifacts.NetworkRequest) => ({
+          (accumulator: Artifacts.NetworkRequest, current: Artifacts.NetworkRequest) => ({
             transferSize: accumulator.transferSize + current.transferSize,
             resourceSize: accumulator.resourceSize + current.resourceSize,
           }),
