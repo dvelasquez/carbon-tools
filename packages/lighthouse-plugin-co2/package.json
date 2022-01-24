@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-plugin-co2",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "main": "lib/plugin.js",
   "files": [
     "lib/**/*"
@@ -19,6 +19,6 @@
     "lighthouse": "^9.2.0"
   },
   "dependencies": {
-    "bytes-to-co2": "^0.3.22"
+    "bytes-to-co2": "^0.3.23"
   }
 }
