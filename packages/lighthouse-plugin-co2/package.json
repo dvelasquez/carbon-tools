@@ -13,7 +13,7 @@
     "run:dev": "cross-env NODE_PATH=.. yarn lighthouse https://d13z.dev --plugins=lighthouse-plugin-co2 --only-categories=lighthouse-plugin-co2 --view"
   },
   "peerDependencies": {
-    "lighthouse": "^6.0.0"
+    "lighthouse": "^9.0.0"
   },
   "devDependencies": {
     "lighthouse": "^9.2.0"
