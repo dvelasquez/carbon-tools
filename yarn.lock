@@ -6089,10 +6089,15 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-"typescript@^3 || ^4", typescript@^4.0.3:
+"typescript@^3 || ^4":
   version "4.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.3.tgz#d59344522c4bc464a65a730ac695007fdb66dd88"
   integrity sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==
+
+typescript@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.3.tgz#fe976f0c826a88d0a382007681cbb2da44afdedf"
+  integrity sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==
 
 uglify-js@^3.1.4:
   version "3.13.5"
