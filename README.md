@@ -26,6 +26,5 @@ Project supports NodeJS >= v12.x
 1. Clone the project `git clone https://github.com/dvelasquez/carbon-tools.git`
 2. Run `yarn` to install the dev dependencies
 3. Use `yarn lerna:build` to build all the libraries
-4. Use `yarn lerna:bootstrap` to create symlinks between the libraries
-5. Use `yarn lint` to lint files and catch issues with the code styling, or possible code errors
-6. Use `yarn test` to run Node TAP tests
+4. Use `yarn lint` to lint files and catch issues with the code styling, or possible code errors
+5. Use `yarn test` to run Node TAP tests

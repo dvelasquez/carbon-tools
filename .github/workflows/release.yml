@@ -29,8 +29,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn run lint
-      - name: Bootstrap dependencies
-        run: yarn run lerna:bootstrap
       - name: build
         run: yarn run lerna:build
       - name: Run Node TAP tests
@@ -51,5 +49,3 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-

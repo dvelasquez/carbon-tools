@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "lerna:build": "lerna run build",
-    "lerna:bootstrap": "lerna bootstrap && lerna link --force-local",
     "lerna:version": "lerna version --conventional-commits --yes",
     "lerna:deploy:ci": "lerna publish from-package --yes",
     "lerna:deploy:ci:canary": "lerna publish --yes --canary --preid beta --message 'chore: release new canary versions'",
