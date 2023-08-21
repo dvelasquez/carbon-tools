@@ -30,7 +30,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "lerna": "^6.5.1",
     "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
+    "rimraf": "^5.0.1",
     "rollup": "^2.32.1",
     "rollup-plugin-typescript2": "^0.34.1",
     "tap": "^16.0.1",
