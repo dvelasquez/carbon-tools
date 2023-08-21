@@ -190,3 +190,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# yarn v3
+.yarn/*
+!.yarn/patches
+!.yarn/releases
