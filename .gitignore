@@ -191,4 +191,6 @@ dist
 .pnp.*
 
 # yarn v3
-.yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
