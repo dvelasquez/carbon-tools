@@ -24,17 +24,17 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v2-beta
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
-        run: yarn run lint
+        run: yarn lint
       - name: build
-        run: yarn run lerna:build
+        run: yarn lerna:build
       - name: Run Node TAP tests
-        run: yarn run test
+        run: yarn test
       - name: Version
-        run: yarn run lerna:version
+        run: yarn lerna:version
       - name: NPM Auth
         run: |
           yarn logout
