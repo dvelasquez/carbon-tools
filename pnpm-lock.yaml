@@ -39,8 +39,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(@types/eslint@8.44.2)(eslint-config-prettier@9.0.0)(eslint@8.48.0)(prettier@3.0.3)
       lerna:
-        specifier: 7.3.0
-        version: 7.3.0
+        specifier: 7.4.1
+        version: 7.4.1
       prettier:
         specifier: 3.0.3
         version: 3.0.3
@@ -80,7 +80,7 @@ importers:
     dependencies:
       bytes-to-co2:
         specifier: ^0.3.41
-        version: link:../bytes-to-co2
+        version: 0.3.42
     devDependencies:
       lighthouse:
         specifier: ^9.2.0
@@ -433,20 +433,20 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@lerna/child-process@7.3.0:
-    resolution: {integrity: sha512-rA+fGUo2j/LEq6w1w8s6oVikLbJTWoIDVpYMc7bUCtwDOUuZKMQiRtjmpavY3fTm7ltu42f4AKflc2A70K4wvA==}
-    engines: {node: ^14.17.0 || >=16.0.0}
+  /@lerna/child-process@7.4.1:
+    resolution: {integrity: sha512-Bx1cRCZcVcWoz+atDQc4CSVzGuEgGJPOpIAXjQbBEA2cX5nqIBWdbye8eHu31En/F03aH9BhpNEJghs6wy4iTg==}
+    engines: {node: '>=16.0.0'}
     dependencies:
       chalk: 4.1.2
       execa: 5.1.1
       strong-log-transformer: 2.1.0
     dev: true
 
-  /@lerna/create@7.3.0:
-    resolution: {integrity: sha512-fjgiKjg9VXwQ4ZKKsrXICEKRiC3yo6+FprR0mc55uz0s5e9xupoSGLobUTTBdE7ncNB3ibqml8dfaAn/+ESajQ==}
-    engines: {node: ^14.17.0 || >=16.0.0}
+  /@lerna/create@7.4.1:
+    resolution: {integrity: sha512-zPO9GyWceRimtMD+j+aQ8xJgNPYn/Q/SzHf4wYN+4Rj5nrFKMyX+Et7FbWgUNpj0dRgyCCKBDYmTB7xQVVq4gQ==}
+    engines: {node: '>=16.0.0'}
     dependencies:
-      '@lerna/child-process': 7.3.0
+      '@lerna/child-process': 7.4.1
       '@npmcli/run-script': 6.0.2
       '@nx/devkit': 16.7.2(nx@16.7.2)
       '@octokit/plugin-enterprise-rest': 6.0.1
@@ -1598,6 +1598,12 @@ packages:
     engines: {node: '>=12.17'}
     dev: true
 
+  /bytes-to-co2@0.3.42:
+    resolution: {integrity: sha512-jJXyMWCObSBGPnCA7p94ryC9Gq9E81v0Lzadt7gLavDXHvyea4Vj1ITu01DuFObFWbyA4LxdGxrRu+7Zi0zhIA==}
+    dependencies:
+      co2-data: 0.0.40
+    dev: false
+
   /cacache@17.1.4:
     resolution: {integrity: sha512-/aJwG2l3ZMJ1xNAnqbMpA40of9dj/pIH3QfiuQSqjfPJF747VR0J/bHn+/KdNnHKc6XQcWt/AfRSBft82W1d2A==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -1833,6 +1839,10 @@ packages:
     resolution: {integrity: sha512-S9iI9y0nKR4hwEQsVWpyxld/6kRfGepGfzff83FcaiEBpmvlbA2nnGe7Cylgrx2f/p1P5S5wpRm9oL8z1PbS3Q==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
+
+  /co2-data@0.0.40:
+    resolution: {integrity: sha512-7K0Cw7EMRJoR5CDBoDKiAWCR23tqPNc87RaUWDqd36striHmj3hKtHVoUR/Sqvfpvc9S7OMdBQjyCh7+7Lnr1A==}
+    dev: false
 
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -3738,13 +3748,13 @@ packages:
       package-json: 6.5.0
     dev: true
 
-  /lerna@7.3.0:
-    resolution: {integrity: sha512-Dt8TH+J+c9+3MhTYcm5OxnNzXb87WG7GPNj3kidjYJjJY7KxIMDNU37qBTYRWA1h3wAeNKBplXVQYUPkGcYgkQ==}
-    engines: {node: ^14.17.0 || >=16.0.0}
+  /lerna@7.4.1:
+    resolution: {integrity: sha512-c6sOO0dlJU689vStIsko+zjRdn2fJOWH8aNjePLNv2AubAdABKqfrDCpE2H/Q7+O80Duo68ZQtWYkUUk7hRWDw==}
+    engines: {node: '>=16.0.0'}
     hasBin: true
     dependencies:
-      '@lerna/child-process': 7.3.0
-      '@lerna/create': 7.3.0
+      '@lerna/child-process': 7.4.1
+      '@lerna/create': 7.4.1
       '@npmcli/run-script': 6.0.2
       '@nx/devkit': 16.7.2(nx@16.7.2)
       '@octokit/plugin-enterprise-rest': 6.0.1
