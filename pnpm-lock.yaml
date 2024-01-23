@@ -51,8 +51,8 @@ importers:
         specifier: 3.29.4
         version: 3.29.4
       rollup-plugin-typescript2:
-        specifier: 0.35.0
-        version: 0.35.0(rollup@3.29.4)(typescript@5.2.2)
+        specifier: 0.36.0
+        version: 0.36.0(rollup@3.29.4)(typescript@5.2.2)
       tap:
         specifier: 16.3.8
         version: 16.3.8(ts-node@10.9.1)(typescript@5.2.2)
@@ -5376,8 +5376,8 @@ packages:
     resolution: {integrity: sha512-oO8f2SI04dJk3pbj2KOMJ4G6QfPAgqcGmrYGmansIcpRewIPT2ljWEt5I+ip6EgiyaLo+RXkkUWw74M25HDkMA==}
     dev: true
 
-  /rollup-plugin-typescript2@0.35.0(rollup@3.29.4)(typescript@5.2.2):
-    resolution: {integrity: sha512-szcIO9hPUx3PhQl91u4pfNAH2EKbtrXaES+m163xQVE5O1CC0ea6YZV/5woiDDW3CR9jF2CszPrKN+AFiND0bg==}
+  /rollup-plugin-typescript2@0.36.0(rollup@3.29.4)(typescript@5.2.2):
+    resolution: {integrity: sha512-NB2CSQDxSe9+Oe2ahZbf+B4bh7pHwjV5L+RSYpCu7Q5ROuN94F9b6ioWwKfz3ueL3KTtmX4o2MUH2cgHDIEUsw==}
     peerDependencies:
       rollup: '>=1.26.3'
       typescript: '>=2.4.0'
