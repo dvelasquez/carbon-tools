@@ -3,7 +3,7 @@ import { findKeysByCode, getCountries } from './country-names';
 
 Tap.test('should get a list with all the countries in the data', (t) => {
   const countries = getCountries();
-  t.equals(countries.length, 87, 'There should be 87 countries');
+  t.equal(countries.length, 87, 'There should be 87 countries');
   t.end();
 });
 

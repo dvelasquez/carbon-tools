@@ -9,7 +9,7 @@
     "lerna:run:gather": "lerna run run:gather",
     "lerna:run:dev": "lerna run run:dev",
     "lint": "eslint --quiet --fix",
-    "test": "tap --node-arg=--require=ts-node/register/transpile-only",
+    "test": "tap --allow-incomplete-coverage --node-arg=--require=ts-node/register/transpile-only",
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
   },
   "engines": {
@@ -40,20 +40,8 @@
   "workspaces": [
     "packages/*"
   ],
-  "tap": {
-    "check-coverage": false,
-    "nyc-arg": [
-      "--exclude=**/__mocks__/*.*"
-    ],
-    "reporter": "spec",
-    "no-ts": true,
-    "test-env": [
-      "TS_NODE_PROJECT=tsconfig.json",
-      "TS_NODE_FILES=true"
-    ]
-  },
   "volta": {
-    "node": "18.17.1",
+    "node": "20.11.0",
     "npm": "9.8.1"
   }
 }
