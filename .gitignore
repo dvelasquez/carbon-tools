@@ -194,3 +194,5 @@ dist
 .yarn/*
 !.yarn/patches
 !.yarn/releases
+
+.tap
