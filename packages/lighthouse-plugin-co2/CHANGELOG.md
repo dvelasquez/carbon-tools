@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.50 (2024-02-26)
+
+**Note:** Version bump only for package lighthouse-plugin-co2
+
 ## 0.0.49 (2024-02-25)
 
 **Note:** Version bump only for package lighthouse-plugin-co2
