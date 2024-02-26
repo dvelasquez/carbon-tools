@@ -19,7 +19,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "25.0.7",
     "@types/eslint": "8.56.2",
-    "@types/tap": "15.0.8",
+    "@types/tap": "15.0.11",
     "@typescript-eslint/eslint-plugin": "7.0.0",
     "@typescript-eslint/parser": "6.21.0",
     "cpy-cli": "5.0.0",
