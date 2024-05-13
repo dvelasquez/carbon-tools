@@ -45,8 +45,8 @@ importers:
         specifier: 3.2.5
         version: 3.2.5
       rimraf:
-        specifier: 5.0.5
-        version: 5.0.5
+        specifier: 5.0.7
+        version: 5.0.7
       rollup:
         specifier: 3.29.4
         version: 3.29.4
@@ -991,7 +991,7 @@ packages:
     dependencies:
       '@tapjs/core': 1.5.2(@types/node@20.5.1)(react-dom@18.2.0)(react@18.2.0)
       mkdirp: 3.0.1
-      rimraf: 5.0.5
+      rimraf: 5.0.7
     dev: true
 
   /@tapjs/intercept@1.2.20(@tapjs/core@1.5.2):
@@ -1095,7 +1095,7 @@ packages:
       opener: 1.5.2
       pacote: 17.0.6
       resolve-import: 1.4.5
-      rimraf: 5.0.5
+      rimraf: 5.0.7
       semver: 7.6.0
       signal-exit: 4.1.0
       tap-parser: 15.3.2
@@ -1183,7 +1183,7 @@ packages:
       jackspeak: 2.3.6
       mkdirp: 3.0.1
       resolve-import: 1.4.5
-      rimraf: 5.0.5
+      rimraf: 5.0.7
       sync-content: 1.0.2
       tap-parser: 15.3.2
       tshy: 1.13.1
@@ -1898,7 +1898,7 @@ packages:
       fs-minipass: 3.0.3
       glob: 10.3.10
       lru-cache: 7.18.3
-      minipass: 7.0.3
+      minipass: 7.0.4
       minipass-collect: 1.0.2
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
@@ -4579,11 +4579,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /minipass@7.0.3:
-    resolution: {integrity: sha512-LhbbwCfz3vsb12j/WkWQPZfKTsgqIe1Nf/ti1pKjYESGLHIVjWU96G9/ljLH4F9mWNVhlQOm0VySdAWzf05dpg==}
-    engines: {node: '>=16 || 14 >=14.17'}
-    dev: true
-
   /minipass@7.0.4:
     resolution: {integrity: sha512-jYofLM5Dam9279rdkWzqHozUo4ybjdZmCsDHePy5V/PbBcVMiSZR97gmAy45aqi8CK1lG2ECd356FU86avfwUQ==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -5735,9 +5730,9 @@ packages:
       glob: 9.3.5
     dev: true
 
-  /rimraf@5.0.5:
-    resolution: {integrity: sha512-CqDakW+hMe/Bz202FPEymy68P+G50RfMQK+Qo5YUqc9SPipvbGjCGKd0RSKEelbsfQuw3g5NZDSrlZZAJurH1A==}
-    engines: {node: '>=14'}
+  /rimraf@5.0.7:
+    resolution: {integrity: sha512-nV6YcJo5wbLW77m+8KjH8aB/7/rxQy9SZ0HY5shnwULfS+9nmTtVXAJET5NdZmCzA4fPI/Hm1wo/Po/4mopOdg==}
+    engines: {node: '>=14.18'}
     hasBin: true
     dependencies:
       glob: 10.3.10
@@ -6171,7 +6166,7 @@ packages:
       glob: 10.3.10
       mkdirp: 3.0.1
       path-scurry: 1.10.1
-      rimraf: 5.0.5
+      rimraf: 5.0.7
     dev: true
 
   /synckit@0.8.8:
@@ -6419,7 +6414,7 @@ packages:
       foreground-child: 3.1.1
       mkdirp: 3.0.1
       resolve-import: 1.4.5
-      rimraf: 5.0.5
+      rimraf: 5.0.7
       sync-content: 1.0.2
       typescript: 5.3.3
       walk-up-path: 3.0.1
@@ -6436,7 +6431,7 @@ packages:
       mkdirp: 3.0.1
       polite-json: 4.0.1
       resolve-import: 1.4.5
-      rimraf: 5.0.5
+      rimraf: 5.0.7
       sync-content: 1.0.2
       typescript: 5.3.3
       walk-up-path: 3.0.1
