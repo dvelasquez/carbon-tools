@@ -13,8 +13,7 @@
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
   },
   "engines": {
-    "node": ">=18.0.0",
-    "yarn": ">=3.0.0"
+    "node": ">=18.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "25.0.7",
