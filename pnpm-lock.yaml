@@ -68,7 +68,7 @@ importers:
   packages/bytes-to-co2:
     dependencies:
       co2-data:
-        specifier: ^0.0.52
+        specifier: ^0.0.53
         version: link:../co2-data
 
   packages/co2-data: {}
@@ -78,7 +78,7 @@ importers:
   packages/lighthouse-plugin-co2:
     dependencies:
       bytes-to-co2:
-        specifier: ^0.3.54
+        specifier: ^0.3.55
         version: link:../bytes-to-co2
     devDependencies:
       lighthouse:
