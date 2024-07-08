@@ -13,7 +13,8 @@
     "posttest": "tap --coverage-report=html --coverage-report=cobertura"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "25.0.7",
@@ -33,7 +34,7 @@
     "rollup-plugin-typescript2": "0.36.0",
     "tap": "18.7.2",
     "ts-node": "10.9.2",
-    "tslib": "2.6.2",
+    "tslib": "2.6.3",
     "typescript": "5.5.3"
   },
   "workspaces": [
