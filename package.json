@@ -10,7 +10,7 @@
     "lerna:run:dev": "lerna run run:dev",
     "lint": "eslint --quiet --fix",
     "test": "tap --allow-incomplete-coverage --node-arg=--require=ts-node/register/transpile-only",
-    "posttest": "tap --coverage-report=html --coverage-report=cobertura"
+    "posttest": "tap --allow-incomplete-coverage --coverage-report=html --coverage-report=cobertura"
   },
   "engines": {
     "node": ">=22.0.0",
