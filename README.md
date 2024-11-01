@@ -24,7 +24,7 @@ For now, we are only exposing as libraries [co2-data](https://www.npmjs.com/pack
 Project supports NodeJS >= v12.x
 
 1. Clone the project `git clone https://github.com/dvelasquez/carbon-tools.git`
-2. Run `yarn` to install the dev dependencies
+2. Run `pnpm i` to install the dev dependencies
 3. Use `pnpm lerna:build` to build all the libraries
 4. Use `pnpm lint` to lint files and catch issues with the code styling, or possible code errors
 5. Use `pnpm test` to run Node TAP tests
