@@ -15,8 +15,8 @@ importers:
         specifier: 8.56.12
         version: 8.56.12
       '@types/tap':
-        specifier: 15.0.8
-        version: 15.0.8
+        specifier: 15.0.12
+        version: 15.0.12
       '@typescript-eslint/eslint-plugin':
         specifier: 7.0.0
         version: 7.0.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
@@ -683,8 +683,8 @@ packages:
   '@types/semver@7.5.0':
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
 
-  '@types/tap@15.0.8':
-    resolution: {integrity: sha512-ZfeoiZlLIaFi4t6wccwbTEicrHREkP0bOq8dZVi/nWvG5F8O7LlS2cSUZBiOW/D4cgWS/p2uhM3lJoyzFAl80w==}
+  '@types/tap@15.0.12':
+    resolution: {integrity: sha512-QuVlxQEBOBASkirrwp0ciwO9stIzOdRMHyaYYsexeVSAYwR4sq+YIYaQbVaYXSXi8+yPf22ZZNieRCB8KAJrTA==}
 
   '@types/yauzl@2.10.3':
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
@@ -4423,7 +4423,7 @@ snapshots:
 
   '@types/semver@7.5.0': {}
 
-  '@types/tap@15.0.8':
+  '@types/tap@15.0.12':
     dependencies:
       '@types/node': 20.5.1
 
