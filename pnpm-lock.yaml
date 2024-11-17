@@ -19,10 +19,10 @@ importers:
         version: 15.0.12
       '@typescript-eslint/eslint-plugin':
         specifier: 7.18.0
-        version: 7.18.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.5.3))(eslint@8.57.1)(typescript@5.5.3)
+        version: 7.18.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)
       '@typescript-eslint/parser':
         specifier: 6.21.0
-        version: 6.21.0(eslint@8.57.1)(typescript@5.5.3)
+        version: 6.21.0(eslint@8.57.1)(typescript@5.6.3)
       cpy-cli:
         specifier: 5.0.0
         version: 5.0.0
@@ -52,19 +52,19 @@ importers:
         version: 3.29.5
       rollup-plugin-typescript2:
         specifier: 0.36.0
-        version: 0.36.0(rollup@3.29.5)(typescript@5.5.3)
+        version: 0.36.0(rollup@3.29.5)(typescript@5.6.3)
       tap:
         specifier: 20.0.3
-        version: 20.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.5.3)
+        version: 20.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.6.3)
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@20.5.1)(typescript@5.5.3)
+        version: 10.9.2(@types/node@20.5.1)(typescript@5.6.3)
       tslib:
         specifier: 2.8.1
         version: 2.8.1
       typescript:
-        specifier: 5.5.3
-        version: 5.5.3
+        specifier: 5.6.3
+        version: 5.6.3
 
   packages/bytes-to-co2:
     dependencies:
@@ -3282,6 +3282,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   uglify-js@3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
     engines: {node: '>=0.8.0'}
@@ -3601,6 +3606,22 @@ snapshots:
       typescript: 5.5.3
       v8-compile-cache-lib: 3.0.1
 
+  '@isaacs/ts-node-temp-fork-for-pr-2009@10.9.7(@types/node@20.5.1)(typescript@5.6.3)':
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@tsconfig/node18': 18.2.2
+      '@tsconfig/node20': 20.1.2
+      '@types/node': 20.5.1
+      acorn: 8.10.0
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.6.3
+      v8-compile-cache-lib: 3.0.1
+
   '@istanbuljs/schema@0.1.3': {}
 
   '@jest/schemas@29.6.3':
@@ -3621,7 +3642,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@lerna/create@8.1.9(encoding@0.1.13)(typescript@5.5.3)':
+  '@lerna/create@8.1.9(encoding@0.1.13)(typescript@5.6.3)':
     dependencies:
       '@npmcli/arborist': 7.5.4
       '@npmcli/package-json': 5.2.0
@@ -3639,7 +3660,7 @@ snapshots:
       console-control-strings: 1.1.0
       conventional-changelog-core: 5.0.1
       conventional-recommended-bump: 7.0.1
-      cosmiconfig: 9.0.0(typescript@5.5.3)
+      cosmiconfig: 9.0.0(typescript@5.6.3)
       dedent: 1.5.3
       execa: 5.0.0
       fs-extra: 11.2.0
@@ -4328,6 +4349,16 @@ snapshots:
       - '@types/node'
       - typescript
 
+  '@tapjs/typescript@2.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/node@20.5.1)(typescript@5.6.3)':
+    dependencies:
+      '@isaacs/ts-node-temp-fork-for-pr-2009': 10.9.7(@types/node@20.5.1)(typescript@5.6.3)
+      '@tapjs/core': 3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
+      - typescript
+
   '@tapjs/worker@3.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@tapjs/core': 3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -4379,34 +4410,34 @@ snapshots:
       '@types/node': 20.5.1
     optional: true
 
-  '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.5.3))(eslint@8.57.1)(typescript@5.5.3)':
+  '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
-      '@typescript-eslint/parser': 6.21.0(eslint@8.57.1)(typescript@5.5.3)
+      '@typescript-eslint/parser': 6.21.0(eslint@8.57.1)(typescript@5.6.3)
       '@typescript-eslint/scope-manager': 7.18.0
-      '@typescript-eslint/type-utils': 7.18.0(eslint@8.57.1)(typescript@5.5.3)
-      '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.5.3)
+      '@typescript-eslint/type-utils': 7.18.0(eslint@8.57.1)(typescript@5.6.3)
+      '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.6.3)
       '@typescript-eslint/visitor-keys': 7.18.0
       eslint: 8.57.1
       graphemer: 1.4.0
       ignore: 5.3.2
       natural-compare: 1.4.0
-      ts-api-utils: 1.4.0(typescript@5.5.3)
+      ts-api-utils: 1.4.0(typescript@5.6.3)
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.5.3)':
+  '@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 6.21.0
       '@typescript-eslint/types': 6.21.0
-      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.5.3)
+      '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.6.3)
       '@typescript-eslint/visitor-keys': 6.21.0
       debug: 4.3.4
       eslint: 8.57.1
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
 
@@ -4420,15 +4451,15 @@ snapshots:
       '@typescript-eslint/types': 7.18.0
       '@typescript-eslint/visitor-keys': 7.18.0
 
-  '@typescript-eslint/type-utils@7.18.0(eslint@8.57.1)(typescript@5.5.3)':
+  '@typescript-eslint/type-utils@7.18.0(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
-      '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.5.3)
-      '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.5.3)
+      '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.6.3)
+      '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.6.3)
       debug: 4.3.5
       eslint: 8.57.1
-      ts-api-utils: 1.4.0(typescript@5.5.3)
+      ts-api-utils: 1.4.0(typescript@5.6.3)
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
 
@@ -4436,7 +4467,7 @@ snapshots:
 
   '@typescript-eslint/types@7.18.0': {}
 
-  '@typescript-eslint/typescript-estree@6.21.0(typescript@5.5.3)':
+  '@typescript-eslint/typescript-estree@6.21.0(typescript@5.6.3)':
     dependencies:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/visitor-keys': 6.21.0
@@ -4445,13 +4476,13 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.3
       semver: 7.6.0
-      ts-api-utils: 1.0.2(typescript@5.5.3)
+      ts-api-utils: 1.0.2(typescript@5.6.3)
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/typescript-estree@7.18.0(typescript@5.5.3)':
+  '@typescript-eslint/typescript-estree@7.18.0(typescript@5.6.3)':
     dependencies:
       '@typescript-eslint/types': 7.18.0
       '@typescript-eslint/visitor-keys': 7.18.0
@@ -4460,18 +4491,18 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.6.0
-      ts-api-utils: 1.4.0(typescript@5.5.3)
+      ts-api-utils: 1.4.0(typescript@5.6.3)
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.5.3)':
+  '@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.57.1)
       '@typescript-eslint/scope-manager': 7.18.0
       '@typescript-eslint/types': 7.18.0
-      '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.5.3)
+      '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.6.3)
       eslint: 8.57.1
     transitivePeerDependencies:
       - supports-color
@@ -4921,14 +4952,14 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig@9.0.0(typescript@5.5.3):
+  cosmiconfig@9.0.0(typescript@5.6.3):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
 
   cp-file@10.0.0:
     dependencies:
@@ -5798,7 +5829,7 @@ snapshots:
 
   lerna@8.1.9(encoding@0.1.13):
     dependencies:
-      '@lerna/create': 8.1.9(encoding@0.1.13)(typescript@5.5.3)
+      '@lerna/create': 8.1.9(encoding@0.1.13)(typescript@5.6.3)
       '@npmcli/arborist': 7.5.4
       '@npmcli/package-json': 5.2.0
       '@npmcli/run-script': 8.1.0
@@ -5816,7 +5847,7 @@ snapshots:
       conventional-changelog-angular: 7.0.0
       conventional-changelog-core: 5.0.1
       conventional-recommended-bump: 7.0.1
-      cosmiconfig: 9.0.0(typescript@5.5.3)
+      cosmiconfig: 9.0.0(typescript@5.6.3)
       dedent: 1.5.3
       envinfo: 7.13.0
       execa: 5.0.0
@@ -5869,7 +5900,7 @@ snapshots:
       strong-log-transformer: 2.1.0
       tar: 6.2.1
       temp-dir: 1.0.0
-      typescript: 5.5.3
+      typescript: 5.6.3
       upath: 2.0.1
       uuid: 10.0.0
       validate-npm-package-license: 3.0.4
@@ -6783,7 +6814,7 @@ snapshots:
 
   robots-parser@3.0.1: {}
 
-  rollup-plugin-typescript2@0.36.0(rollup@3.29.5)(typescript@5.5.3):
+  rollup-plugin-typescript2@0.36.0(rollup@3.29.5)(typescript@5.6.3):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       find-cache-dir: 3.3.2
@@ -6791,7 +6822,7 @@ snapshots:
       rollup: 3.29.5
       semver: 7.5.4
       tslib: 2.8.1
-      typescript: 5.5.3
+      typescript: 5.6.3
 
   rollup@3.29.5:
     optionalDependencies:
@@ -7021,7 +7052,7 @@ snapshots:
       yaml: 2.4.1
       yaml-types: 0.3.0(yaml@2.4.1)
 
-  tap@20.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.5.3):
+  tap@20.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.6.3):
     dependencies:
       '@tapjs/after': 2.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@tapjs/after-each': 3.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
@@ -7040,7 +7071,7 @@ snapshots:
       '@tapjs/spawn': 3.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@tapjs/stdin': 3.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@tapjs/test': 3.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@tapjs/typescript': 2.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/node@20.5.1)(typescript@5.5.3)
+      '@tapjs/typescript': 2.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/node@20.5.1)(typescript@5.6.3)
       '@tapjs/worker': 3.0.3(@tapjs/core@3.0.3(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       resolve-import: 1.4.5
     transitivePeerDependencies:
@@ -7131,15 +7162,15 @@ snapshots:
 
   trivial-deferred@2.0.0: {}
 
-  ts-api-utils@1.0.2(typescript@5.5.3):
+  ts-api-utils@1.0.2(typescript@5.6.3):
     dependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
 
-  ts-api-utils@1.4.0(typescript@5.5.3):
+  ts-api-utils@1.4.0(typescript@5.6.3):
     dependencies:
-      typescript: 5.5.3
+      typescript: 5.6.3
 
-  ts-node@10.9.2(@types/node@20.5.1)(typescript@5.5.3):
+  ts-node@10.9.2(@types/node@20.5.1)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.9
@@ -7153,7 +7184,7 @@ snapshots:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.5.3
+      typescript: 5.6.3
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
@@ -7174,7 +7205,7 @@ snapshots:
       resolve-import: 1.4.5
       rimraf: 5.0.10
       sync-content: 1.0.2
-      typescript: 5.5.3
+      typescript: 5.6.3
       walk-up-path: 3.0.1
 
   tslib@1.14.1: {}
@@ -7214,6 +7245,8 @@ snapshots:
   typedarray@0.0.6: {}
 
   typescript@5.5.3: {}
+
+  typescript@5.6.3: {}
 
   uglify-js@3.17.4:
     optional: true
