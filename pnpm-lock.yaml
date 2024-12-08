@@ -15,8 +15,8 @@ importers:
         specifier: 8.56.12
         version: 8.56.12
       '@types/tap':
-        specifier: 15.0.12
-        version: 15.0.12
+        specifier: 18.0.0
+        version: 18.0.0(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.7.2)
       '@typescript-eslint/eslint-plugin':
         specifier: 7.18.0
         version: 7.18.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1)(typescript@5.7.2)
@@ -768,8 +768,9 @@ packages:
   '@types/normalize-package-data@2.4.1':
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
 
-  '@types/tap@15.0.12':
-    resolution: {integrity: sha512-QuVlxQEBOBASkirrwp0ciwO9stIzOdRMHyaYYsexeVSAYwR4sq+YIYaQbVaYXSXi8+yPf22ZZNieRCB8KAJrTA==}
+  '@types/tap@18.0.0':
+    resolution: {integrity: sha512-caqy4dfOj/mdGpMdjRIsJc0HDCMUeCLCxbf1mlfAbpDGzOOqd5yQ4hRMxiER+sR7Wx1y3gNEPqFw0ySp4uI/jQ==}
+    deprecated: This is a stub types definition. tap provides its own type definitions, so you do not need this installed.
 
   '@types/yauzl@2.10.3':
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
@@ -4608,9 +4609,23 @@ snapshots:
 
   '@types/normalize-package-data@2.4.1': {}
 
-  '@types/tap@15.0.12':
+  '@types/tap@18.0.0(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.7.2)':
     dependencies:
-      '@types/node': 20.5.1
+      tap: 21.0.1(@types/node@20.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.7.2)
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
+      - '@types/react'
+      - bluebird
+      - bufferutil
+      - monocart-coverage-reports
+      - react
+      - react-devtools-core
+      - react-dom
+      - supports-color
+      - typescript
+      - utf-8-validate
 
   '@types/yauzl@2.10.3':
     dependencies:
