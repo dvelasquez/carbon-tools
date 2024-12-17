@@ -16,7 +16,7 @@ import { getDataByCode } from './data-helpers';
   });
   const resultList: { filename: string; payload: ElectricityMapDataResponse }[] = await Promise.all(
     files.map(
-      async (file): Promise<{ filename: string; payload: ElectricityMapDataResponse }> => ({
+      async (file: string): Promise<{ filename: string; payload: ElectricityMapDataResponse }> => ({
         filename: file,
         payload: JSON.parse((await fsPromise.readFile(path.resolve(`${PAYLOAD_FOLDER}/${file}`))).toString()),
       }),
@@ -33,8 +33,8 @@ import { getDataByCode } from './data-helpers';
   const averagedResult: ElectricityMapResultAveraged[] = JSON.parse(JSON.stringify(groupedData[0].averagesByCode));
   groupedData.forEach(({ averagesByCode }, index) => {
     if (index === 0) {
-      averagesByCode.forEach((value: ElectricityMapResult) => {
-        averagedResult.forEach((result: ElectricityMapResult, current) => {
+      averagesByCode.forEach(() => {
+        averagedResult.forEach((_: ElectricityMapResult, current) => {
           averagedResult[current].co2List = averagedResult[current].co2List || [];
         });
       });
