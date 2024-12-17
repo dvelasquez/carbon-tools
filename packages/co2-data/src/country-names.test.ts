@@ -12,5 +12,9 @@ Tap.test('should find all the records that match the code', (t) => {
   const AUSTRIA = findKeysByCode('AT');
   const CHILE = findKeysByCode('CL');
 
+  t.equal(US.length, 98, 'There should be 98 record for US');
+  t.equal(AUSTRIA.length, 1, 'There should be 1 record for AUSTRIA');
+  t.equal(CHILE.length, 2, 'There should be 2 record for CHILE');
+
   t.end();
 });

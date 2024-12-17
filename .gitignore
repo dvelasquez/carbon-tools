@@ -196,3 +196,7 @@ dist
 !.yarn/releases
 
 .tap
+
+browser-esm/
+lib/
+dist/

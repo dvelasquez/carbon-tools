@@ -33,8 +33,8 @@ import { getDataByCode } from './data-helpers';
   const averagedResult: ElectricityMapResultAveraged[] = JSON.parse(JSON.stringify(groupedData[0].averagesByCode));
   groupedData.forEach(({ averagesByCode }, index) => {
     if (index === 0) {
-      averagesByCode.forEach((value: ElectricityMapResult) => {
-        averagedResult.forEach((result: ElectricityMapResult, current) => {
+      averagesByCode.forEach(() => {
+        averagedResult.forEach((_: ElectricityMapResult, current) => {
           averagedResult[current].co2List = averagedResult[current].co2List || [];
         });
       });

@@ -1,3 +1,5 @@
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
 (async () => {
     const bytesToCo2Src = chrome.runtime.getURL('browser-esm/bytes-to-co2.min.js')
     const {byteToCo2} = await import(bytesToCo2Src)
