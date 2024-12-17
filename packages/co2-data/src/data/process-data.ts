@@ -16,7 +16,7 @@ import { getDataByCode } from './data-helpers';
   });
   const resultList: { filename: string; payload: ElectricityMapDataResponse }[] = await Promise.all(
     files.map(
-      async (file): Promise<{ filename: string; payload: ElectricityMapDataResponse }> => ({
+      async (file: string): Promise<{ filename: string; payload: ElectricityMapDataResponse }> => ({
         filename: file,
         payload: JSON.parse((await fsPromise.readFile(path.resolve(`${PAYLOAD_FOLDER}/${file}`))).toString()),
       }),
