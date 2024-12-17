@@ -13,12 +13,10 @@ import { ranking } from '../helpers/ranking';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { bytesToCo2, countries } from 'bytes-to-co2';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import NetworkRecords from 'lighthouse/lighthouse-core/computed/network-records';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { Audit, Artifacts } from 'lighthouse';
+import { Audit, NetworkRecords } from 'lighthouse';
+import type { Artifacts,  } from 'lighthouse';
+import * as LH from 'lighthouse/types/lh.js';
+// import NetworkRecords from "lighthouse/core/computed/network-records"
 
 class CarbonFootprintAudit extends Audit {
   static get meta() {
@@ -35,7 +33,7 @@ class CarbonFootprintAudit extends Audit {
         ' to the atmosphere.',
 
       // The name of the artifact provides input to this audit.
-      requiredArtifacts: ['devtoolsLogs'],
+      requiredArtifacts: ['DevtoolsLog'] as Array<keyof LH.Artifacts>,
     };
   }
 
@@ -43,10 +41,11 @@ class CarbonFootprintAudit extends Audit {
     return Number(`${Math.round(Number(`${value}e${decimals}`))}e-${decimals}`);
   }
 
-  static audit(artifacts: Artifacts, context: Audit.Context) {
+  static audit(artifacts: Artifacts, context: LH.Audit.Context) {
     try {
       const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
-      return NetworkRecords.request(devtoolsLog, context).then((records: NetworkRecords) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return NetworkRecords.request(devtoolsLog, context).then((records: any) => {
         const agregatedResult = records.reduce(
           (accumulator: Artifacts.NetworkRequest, current: Artifacts.NetworkRequest) => ({
             transferSize: accumulator.transferSize + current.transferSize,
@@ -75,31 +74,31 @@ class CarbonFootprintAudit extends Audit {
           };
         });
 
-        const headings = [
-          { key: 'country', itemType: 'text', text: 'Country' },
+        const headings:LH.Audit.Details.Table["headings"] = [
+          { key: 'country', valueType: 'text', label: 'Country' },
           {
             key: 'transferSize',
-            itemType: 'bytes',
+            valueType: 'bytes',
             displayUnit: 'kb',
             granularity: 1,
-            text: 'Transfer Size',
+            label: 'Transfer Size',
           },
           {
             key: 'resourceSize',
-            itemType: 'bytes',
+            valueType: 'bytes',
             displayUnit: 'kb',
             granularity: 1,
-            text: 'Resource Size',
+            label: 'Resource Size',
           },
           {
             key: 'co2Grams',
-            itemType: 'text',
-            text: 'Grams of CO2',
+            valueType: 'text',
+            label: 'Grams of CO2',
           },
           {
             key: 'score',
-            itemType: 'text',
-            text: 'Score',
+            valueType: 'text',
+            label: 'Score',
           },
         ];
 
