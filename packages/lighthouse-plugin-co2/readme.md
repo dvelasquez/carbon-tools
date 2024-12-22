@@ -10,7 +10,7 @@ Overall, the less you transfer, the better the score.
 
 ## To run as a plugin user
 
-1. Install `lighthouse` (v5+) and the plugin `lighthouse-plugin-co2`, likely as `devDependencies`. 
+1. Install `lighthouse` (v11+) and the plugin `lighthouse-plugin-co2`, likely as `devDependencies`. 
    * `npm install -D lighthouse lighthouse-plugin-co2`
 1. To run your private lighthouse binary, you have three options
    1. `npx --no-install lighthouse https://example.com --plugins=lighthouse-plugin-co2 --view`
