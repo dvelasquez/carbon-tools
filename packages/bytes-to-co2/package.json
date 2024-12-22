@@ -38,6 +38,6 @@
     ]
   },
   "dependencies": {
-    "co2-data": "^0.0.63"
+    "co2-data": "workspace:^0.0.63"
   }
 }

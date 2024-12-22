@@ -75,8 +75,8 @@ importers:
   packages/bytes-to-co2:
     dependencies:
       co2-data:
-        specifier: ^0.0.63
-        version: 0.0.63
+        specifier: workspace:^0.0.63
+        version: link:../co2-data
 
   packages/co2-data: {}
 
@@ -85,8 +85,8 @@ importers:
   packages/lighthouse-plugin-co2:
     dependencies:
       bytes-to-co2:
-        specifier: ^0.3.65
-        version: 0.3.65
+        specifier: workspace:^0.3.65
+        version: link:../bytes-to-co2
     devDependencies:
       lighthouse:
         specifier: ^12.0.0
@@ -1095,9 +1095,6 @@ packages:
     resolution: {integrity: sha512-tUkzZWK0M/qdoLEqikxBWe4kumyuwjl3HO6zHTr4yEI23EojPtLYXdG1+AQY7MN0cGyNDvEaJ8wiYQm6P2bPxg==}
     engines: {node: '>=12.17'}
 
-  bytes-to-co2@0.3.65:
-    resolution: {integrity: sha512-/hoksrOFlczBlkoGYBxVilfF5QCnMOTcfpNklidp3m6ZDilR2GjNR40475TbGyIqREPSr9E/HNP6PEosZgbBtQ==}
-
   c8@10.1.3:
     resolution: {integrity: sha512-LvcyrOAaOnrrlMpW22n690PUvxiq4Uf9WMhQwNJ9vgagkL/ph1+D4uvjvDA5XCbykrc0sx+ay6pVi9YZ1GnhyA==}
     engines: {node: '>=18'}
@@ -1219,9 +1216,6 @@ packages:
   cmd-shim@6.0.3:
     resolution: {integrity: sha512-FMabTRlc5t5zjdenF6mS0MBeFZm0XqHqeOkcskKFb/LYCcRQ5fVgLOHVc4Lq9CqABd9zhjwPjMBCJvMCziSVtA==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-
-  co2-data@0.0.63:
-    resolution: {integrity: sha512-fCuds6jRmCv6y8c7Mf8it8fyKr06kuG2Ujy/1+zHE6dSy9apFO3qCWaqWn3jxivdYMdA0CuxLLgoLzkWxIT1Mg==}
 
   code-excerpt@4.0.0:
     resolution: {integrity: sha512-xxodCmBen3iy2i0WtAK8FlFNrRzjUqjRsMfho58xT/wvZU1YTM3fCnRjcy1gJPMepaRlgm/0e6w8SpWHpn3/cA==}
@@ -4936,10 +4930,6 @@ snapshots:
 
   byte-size@8.1.1: {}
 
-  bytes-to-co2@0.3.65:
-    dependencies:
-      co2-data: 0.0.63
-
   c8@10.1.3:
     dependencies:
       '@bcoe/v8-coverage': 1.0.1
@@ -5074,8 +5064,6 @@ snapshots:
   clone@1.0.4: {}
 
   cmd-shim@6.0.3: {}
-
-  co2-data@0.0.63: {}
 
   code-excerpt@4.0.0:
     dependencies:
