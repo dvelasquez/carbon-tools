@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-plugin-co2",
-  "version": "0.0.64",
+  "version": "1.0.0",
   "main": "lib/plugin.js",
   "type": "module",
   "files": [
