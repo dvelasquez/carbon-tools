@@ -9,14 +9,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import { ranking } from '../helpers/ranking';
+import { ranking } from '../helpers/ranking.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { bytesToCo2, countries } from 'bytes-to-co2';
 import { Audit, NetworkRecords } from 'lighthouse';
 import type { Artifacts,  } from 'lighthouse';
 import * as LH from 'lighthouse/types/lh.js';
-// import NetworkRecords from "lighthouse/core/computed/network-records"
 
 class CarbonFootprintAudit extends Audit {
   static get meta() {
@@ -41,11 +40,12 @@ class CarbonFootprintAudit extends Audit {
     return Number(`${Math.round(Number(`${value}e${decimals}`))}e-${decimals}`);
   }
 
-  static audit(artifacts: Artifacts, context: LH.Audit.Context) {
+  static async audit(artifacts: Artifacts, context: LH.Audit.Context): Promise<LH.Audit.Product> {
     try {
       const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
+       
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return NetworkRecords.request(devtoolsLog, context).then((records: any) => {
+      const records: any = await NetworkRecords.request(devtoolsLog, context)
         const agregatedResult = records.reduce(
           (accumulator: Artifacts.NetworkRequest, current: Artifacts.NetworkRequest) => ({
             transferSize: accumulator.transferSize + current.transferSize,
@@ -107,14 +107,17 @@ class CarbonFootprintAudit extends Audit {
         return {
           score: resultByCountry.find(({ country }: { country: string }) => {
             return country === 'World'; // World average
-          })?.score,
+          })?.score || null,
           details: tableDetails,
         };
-      });
     } catch (e) {
       console.error(e);
+      return {
+        score: null,
+        details: Audit.makeTableDetails([], [])
+      };
     }
   }
 }
 
-module.exports = CarbonFootprintAudit;
+export default CarbonFootprintAudit;

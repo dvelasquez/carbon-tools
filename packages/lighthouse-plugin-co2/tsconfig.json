@@ -2,13 +2,14 @@
   "extends": "../../tsconfig.json",
   "ts-node": {
     "compilerOptions": {
-      "module": "UMD"
+      "module": "ESNext"
     }
   },
   "compilerOptions": {
+    "target": "ES2022",
     "outDir": "./lib",
     "allowJs": true,
-    "module": "CommonJS",
+    "module": "ESNext",
     "declaration": true,
     "declarationMap": true
   },

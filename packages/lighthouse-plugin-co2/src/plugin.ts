@@ -22,4 +22,4 @@ const plugin: LH.Config.Plugin = {
     auditRefs: [{ id: 'carbon-footprint', weight: 1 }],
   },
 };
-module.exports = plugin;
+export default plugin;
