@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.64 (2024-12-22)
+
+### Bug Fixes
+
+- internal dependency link ([5ecb13e](https://github.com/dvelasquez/carbon-tools/commit/5ecb13e5233c6038cd6c2130ff3e4e3cecb025d9))
+
 ## 0.0.63 (2024-11-01)
 
 **Note:** Version bump only for package co2-data
