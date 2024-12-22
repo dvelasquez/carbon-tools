@@ -9,16 +9,26 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import { ranking } from '../helpers/ranking';
+import { ranking } from '../helpers/ranking.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { bytesToCo2, countries } from 'bytes-to-co2';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import NetworkRecords from 'lighthouse/lighthouse-core/computed/network-records';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { Audit, Artifacts } from 'lighthouse';
+import { Audit, NetworkRecords } from 'lighthouse';
+import type { Artifacts } from 'lighthouse';
+import * as LH from 'lighthouse/types/lh.js';
+
+interface NetworkSize {
+  transferSize: number;
+  resourceSize: number;
+}
+
+interface CountryEmissionResult extends Record<string, string | number> {
+  country: string;
+  transferSize: number;
+  resourceSize: number;
+  co2Grams: string;
+  score: number;
+}
 
 class CarbonFootprintAudit extends Audit {
   static get meta() {
@@ -31,91 +41,105 @@ class CarbonFootprintAudit extends Audit {
       description:
         'Every byte transmitted over the network requires certain ' +
         'amount of electricity, which is produced ' +
-        'using a mix of fossil fuel, solar, wind, etc., which releas co2' +
-        ' to the atmosphere.',
-
-      // The name of the artifact provides input to this audit.
-      requiredArtifacts: ['devtoolsLogs'],
+        'using a mix of fossil fuel, solar, wind, etc., which releases ' +
+        'co2 to the atmosphere.',
+      requiredArtifacts: ['DevtoolsLog'] as Array<keyof LH.Artifacts>,
     };
   }
 
-  static round(value: number, decimals: number) {
+  private static round(value: number, decimals: number): number {
     return Number(`${Math.round(Number(`${value}e${decimals}`))}e-${decimals}`);
   }
 
-  static audit(artifacts: Artifacts, context: Audit.Context) {
-    try {
-      const devtoolsLog = artifacts.devtoolsLogs[Audit.DEFAULT_PASS];
-      return NetworkRecords.request(devtoolsLog, context).then((records: NetworkRecords) => {
-        const agregatedResult = records.reduce(
-          (accumulator: Artifacts.NetworkRequest, current: Artifacts.NetworkRequest) => ({
-            transferSize: accumulator.transferSize + current.transferSize,
-            resourceSize: accumulator.resourceSize + current.resourceSize,
-          }),
-        );
-        countries.push({ code: 'ZZ', name: 'World' });
+  private static calculateNetworkSize(records: Artifacts.NetworkRequest[]): NetworkSize {
+    return records.reduce(
+      (accumulator: NetworkSize, current: Artifacts.NetworkRequest) => ({
+        transferSize: accumulator.transferSize + current.transferSize,
+        resourceSize: accumulator.resourceSize + current.resourceSize,
+      }),
+      { transferSize: 0, resourceSize: 0 }
+    );
+  }
 
-        const resultByCountry = countries.map((country: { code: string; name: string }) => {
-          const co2 = bytesToCo2({
-            byteSize: agregatedResult.transferSize,
-            country: country.code,
-            isDataAdjusted: false,
-          });
-          const closest = [...ranking].sort((a, b) => Math.abs(co2 - a) - Math.abs(co2 - b))[0];
-          const score = this.round(1 - ranking.findIndex((value) => value === closest) / 100, 2);
-          return {
-            country: country.name,
-            transferSize: agregatedResult.transferSize,
-            resourceSize: agregatedResult.resourceSize,
-            co2Grams: `${this.round(
-              bytesToCo2({ byteSize: agregatedResult.transferSize, country: country.code, isDataAdjusted: false }),
-              4,
-            )}`,
-            score,
-          };
-        });
+  private static calculateEmissionScore(co2Amount: number): number {
+    const closest = [...ranking].sort((a, b) => Math.abs(co2Amount - a) - Math.abs(co2Amount - b))[0];
+    return this.round(1 - ranking.findIndex((value) => value === closest) / 100, 2);
+  }
 
-        const headings = [
-          { key: 'country', itemType: 'text', text: 'Country' },
-          {
-            key: 'transferSize',
-            itemType: 'bytes',
-            displayUnit: 'kb',
-            granularity: 1,
-            text: 'Transfer Size',
-          },
-          {
-            key: 'resourceSize',
-            itemType: 'bytes',
-            displayUnit: 'kb',
-            granularity: 1,
-            text: 'Resource Size',
-          },
-          {
-            key: 'co2Grams',
-            itemType: 'text',
-            text: 'Grams of CO2',
-          },
-          {
-            key: 'score',
-            itemType: 'text',
-            text: 'Score',
-          },
-        ];
+  private static calculateCountryEmissions(networkSize: NetworkSize): CountryEmissionResult[] {
+    // Ensure 'World' is included in countries list
+    if (!countries.find((c: { code: string }) => c.code === 'ZZ')) {
+      countries.push({ code: 'ZZ', name: 'World' });
+    }
 
-        const tableDetails = Audit.makeTableDetails(headings, resultByCountry);
-
-        return {
-          score: resultByCountry.find(({ country }: { country: string }) => {
-            return country === 'World'; // World average
-          })?.score,
-          details: tableDetails,
-        };
+    return countries.map((country: { code: string; name: string }) => {
+      const co2 = bytesToCo2({
+        byteSize: networkSize.transferSize,
+        country: country.code,
+        isDataAdjusted: false,
       });
-    } catch (e) {
-      console.error(e);
+
+      return {
+        country: country.name,
+        transferSize: networkSize.transferSize,
+        resourceSize: networkSize.resourceSize,
+        co2Grams: `${this.round(co2, 4)}`,
+        score: this.calculateEmissionScore(co2),
+      };
+    });
+  }
+
+  private static getTableHeadings(): LH.Audit.Details.Table['headings'] {
+    return [
+      { key: 'country', valueType: 'text', label: 'Country' },
+      {
+        key: 'transferSize',
+        valueType: 'bytes',
+        displayUnit: 'kb',
+        granularity: 1,
+        label: 'Transfer Size',
+      },
+      {
+        key: 'resourceSize',
+        valueType: 'bytes',
+        displayUnit: 'kb',
+        granularity: 1,
+        label: 'Resource Size',
+      },
+      {
+        key: 'co2Grams',
+        valueType: 'text',
+        label: 'Grams of CO2',
+      },
+      {
+        key: 'score',
+        valueType: 'text',
+        label: 'Score',
+      },
+    ];
+  }
+
+  static async audit(artifacts: Artifacts, context: LH.Audit.Context): Promise<LH.Audit.Product> {
+    try {
+      const networkRecords = await NetworkRecords.request(artifacts.DevtoolsLog, context);
+      const networkSize = this.calculateNetworkSize(networkRecords);
+      const emissionResults = this.calculateCountryEmissions(networkSize);
+      
+      const worldResult = emissionResults.find(({ country }) => country === 'World');
+      const tableDetails = Audit.makeTableDetails(this.getTableHeadings(), emissionResults);
+
+      return {
+        score: worldResult?.score ?? null,
+        details: tableDetails,
+      };
+    } catch (error) {
+      console.error('Carbon footprint audit failed:', error);
+      return {
+        score: null,
+        details: Audit.makeTableDetails(this.getTableHeadings(), []),
+      };
     }
   }
 }
 
-module.exports = CarbonFootprintAudit;
+export default CarbonFootprintAudit;
