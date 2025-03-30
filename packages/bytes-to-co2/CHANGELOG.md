@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.97 (2025-03-30)
+
+**Note:** Version bump only for package bytes-to-co2
+
 ## 0.3.96 (2025-03-30)
 
 **Note:** Version bump only for package bytes-to-co2
