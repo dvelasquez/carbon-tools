@@ -1,7 +1,7 @@
 {
   "name": "co2-extension",
   "private": true,
-  "version": "1.0.164",
+  "version": "1.0.165",
   "description": "",
   "main": "index.js",
   "scripts": {
