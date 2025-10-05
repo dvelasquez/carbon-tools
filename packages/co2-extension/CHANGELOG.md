@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.178 (2025-10-05)
+
+**Note:** Version bump only for package co2-extension
+
 ## 1.0.177 (2025-10-05)
 
 **Note:** Version bump only for package co2-extension
