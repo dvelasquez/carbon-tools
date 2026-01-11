@@ -32,7 +32,7 @@
     "lerna": "8.2.4",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
-    "rollup": "4.54.0",
+    "rollup": "4.55.1",
     "rollup-plugin-typescript2": "0.36.0",
     "tap": "21.5.0",
     "ts-node": "10.9.2",
