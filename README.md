@@ -21,7 +21,7 @@ For now, we are only exposing as libraries [co2-data](https://www.npmjs.com/pack
 
 ## Development - Getting started
 
-Project supports NodeJS >= v20.x
+Project supports NodeJS >= v24.x
 
 1. Clone the project `git clone https://github.com/dvelasquez/carbon-tools.git`
 2. Run `pnpm i` to install the dev dependencies
