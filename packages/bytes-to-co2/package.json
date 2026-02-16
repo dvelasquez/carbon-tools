@@ -1,6 +1,6 @@
 {
   "name": "bytes-to-co2",
-  "version": "0.3.227",
+  "version": "0.3.228",
   "description": "Javascript module that calculates the co2 generated in transfer x amount of bytes over the network and the country.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -38,6 +38,6 @@
     ]
   },
   "dependencies": {
-    "co2-data": "workspace:^0.0.225"
+    "co2-data": "workspace:^0.0.226"
   }
 }
