@@ -29,7 +29,7 @@
     "cross-env": "10.1.0",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
-    "lerna": "8.2.4",
+    "lerna": "9.0.4",
     "prettier": "3.8.1",
     "rimraf": "6.1.2",
     "rollup": "4.57.1",
