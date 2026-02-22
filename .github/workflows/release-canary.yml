@@ -14,7 +14,7 @@ jobs:
       CI: 'true'
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Configure CI Git User
         run: |
           git config --global user.name 'Danilo Velasquez'
