@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.244 (2026-03-29)
+
+**Note:** Version bump only for package bytes-to-co2
+
 ## 0.3.243 (2026-03-29)
 
 **Note:** Version bump only for package bytes-to-co2
