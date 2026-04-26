@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.250 (2026-04-26)
+
+**Note:** Version bump only for package co2-data
+
 ## 0.0.249 (2026-04-26)
 
 **Note:** Version bump only for package co2-data
