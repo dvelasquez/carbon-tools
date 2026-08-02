@@ -22,7 +22,7 @@ jobs:
           git remote set-url origin https://$GITHUB_TOKEN@github.com/dvelasquez/carbon-tools
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         with:
           version: 10
       - name: Install node
