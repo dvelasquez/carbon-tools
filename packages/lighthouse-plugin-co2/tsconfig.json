@@ -6,6 +6,7 @@
     }
   },
   "compilerOptions": {
+    "rootDir": "./src",
     "target": "ES2022",
     "outDir": "./lib",
     "allowJs": true,
